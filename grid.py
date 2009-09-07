@@ -68,10 +68,22 @@ if len(args) == 1 and os.path.isfile(args[0]):
 
     for d in dom.getElementsByTagNameNS(CONFIG, "config-item"):
         name = d.getAttributeNS(CONFIG, "name")
-        
         if name == "SnapLinesDrawing":
             snaplines = d
-            
+
+    # Create the snap lines DOM node if it doesn't exist
+    if not snaplines:
+        for configItem in dom.getElementsByTagNameNS(CONFIG, "config-item-map-indexed"):
+            if configItem.getAttributeNS(CONFIG,"name") == "Views":
+                config = configItem.getElementsByTagNameNS(CONFIG, "config-item-map-entry")[0]
+
+                snaplines = dom.createElementNS(CONFIG, "config:config-item")
+                snaplines.setAttributeNS(CONFIG,"config:name", "SnapLinesDrawing")
+                snaplines.setAttributeNS(CONFIG,"config:type", "string")
+                snaplines.appendChild(dom.createTextNode(""))
+                config.appendChild(snaplines)
+
+
     # Here is where we figure out the height and width of the presentation
     #
     # xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
