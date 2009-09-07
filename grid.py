@@ -22,9 +22,6 @@ parser.add_option("-r", "--rectangular", dest="rect",
                   help="Rectangular grid of MxN cells", metavar="MxN")
 parser.add_option("-m", "--margin", dest="margin",
                   help="Margin, in units of inches NNin or centimeters NNcm")
-parser.add_option("-q", "--quiet",
-                  action="store_false", dest="verbose", default=True,
-                  help="don't print status messages to stdout")
 
 (options, args) = parser.parse_args()
 
