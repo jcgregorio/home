@@ -92,8 +92,19 @@ function! s:ExecuteInShell(command)
   silent! redraw
   silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
   silent! execute 'nnoremap <silent> <buffer> <M-r> :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
   echo 'Shell command ' . command . ' executed.'
 endfunction
 command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
+function! ExecuteCurrentLineInShell()
+  let command = getline(line('.'))
+  echo command
+  execute ':call <SID>ExecuteInShell('''.command.''')'
+endfunction
+
+nnoremap <M-e> :call ExecuteCurrentLineInShell()<CR>
+
+nnoremap ; :
 
 cd
