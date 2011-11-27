@@ -1,0 +1,99 @@
+" .vimrc
+" Author: joe@bitworking.org
+" Source: https://joe.gregorio@code.google.com/p/jcgregorio/vim
+" Make sure to link $HOME/.vimrc to this vimrc
+"
+colorscheme joe
+set incsearch
+syntax on
+set hlsearch
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set nowrap
+set diffopt=filler,iwhite
+set ignorecase
+set smartcase
+set textwidth=78
+
+" Set the font.
+set guifont=DejaVu\ Sans\ Mono\ 9
+
+" Remove bling.
+set guioptions-=T
+set guioptions-=m
+
+" Guard against weirdness if your shell starts launcing as an interactive.
+set shell=/bin/bash\ -l
+
+" For all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+" Go {{{
+" Import syntax highlighting and other goodies for Go.
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+" }}}
+
+" Backups {{{
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+" }}}
+
+" Naviate Errors {{{
+nnoremap <m-Down> :cnext<cr>
+nnoremap <m-Up> :cprevious<cr>
+" }}}
+
+" {{{ Easy buffer navigation
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+noremap <leader>v <C-w>v
+" }}}
+
+nnoremap <m-c> :make<cr>
+
+" Get an HTML representation of the current buffer including syntax
+" highlighting.
+let html_use_css=1
+command! Tohtml runtime! syntax/2html.vim
+
+" Highlight trailing whitespace in red.
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+
+" Execute the given command in a shell and display the results in a new
+" window. <M-r> in the new window will re-run the command that created
+" the window. Each unique command gets its own window.
+function! s:ExecuteInShell(command)
+  let command = join(map(split(a:command), 'expand(v:val)'))
+  let winnr = bufwinnr('^' . command . '$')
+  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap
+  echo 'Execute ' . command . '...'
+  silent! execute 'silent %!'. command
+  silent! redraw
+  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+  silent! execute 'nnoremap <silent> <buffer> <M-r> :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  echo 'Shell command ' . command . ' executed.'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
+cd
