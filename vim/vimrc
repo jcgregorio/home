@@ -40,7 +40,7 @@ autocmd BufReadPost *
 
 " Go {{{
 " Import syntax highlighting and other goodies for Go.
-set rtp+=$GOROOT/misc/vim
+set rtp+=$HOME/go/misc/vim
 filetype plugin indent on
 " }}}
 
