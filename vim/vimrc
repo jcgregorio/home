@@ -106,3 +106,4 @@ endfunction
 nnoremap <M-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
+set noeb vb t_vb=
