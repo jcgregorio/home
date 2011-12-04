@@ -18,7 +18,7 @@ set smartcase
 set textwidth=78
 
 " Set the font.
-set guifont=DejaVu\ Sans\ Mono\ 9
+set guifont=DejaVu\ Sans\ Mono\ 8
 
 " Remove bling.
 set guioptions-=T
