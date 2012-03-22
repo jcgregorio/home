@@ -38,6 +38,10 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" CSS {{{
+au BufNewFile,BufRead *.gss set filetype=css
+" }}}
+
 " Go {{{
 " Import syntax highlighting and other goodies for Go.
 set rtp+=$HOME/go/misc/vim
