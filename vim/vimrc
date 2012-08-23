@@ -17,6 +17,9 @@ set ignorecase
 set smartcase
 set textwidth=78
 
+" Make tab completion work more like the shell.
+set wildmode=longest,list
+
 " Set the font.
 set guifont=DejaVu\ Sans\ Mono\ 8
 
@@ -45,7 +48,7 @@ au BufNewFile,BufRead *.gss set filetype=css
 " Go {{{
 " Import syntax highlighting and other goodies for Go.
 set rtp+=$HOME/go/misc/vim
-filetype plugin indent on
+filetype plugin on
 " }}}
 
 " Backups {{{
