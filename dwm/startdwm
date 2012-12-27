@@ -1,0 +1,11 @@
+while true
+do
+  LOCALTIME=$(date +%I:%M   %d %b %Y)
+  xsetroot -name "$LOCALTIME"
+  sleep 20s
+done &
+
+feh --bg-scale /usr/share/backgrounds/The_Forbidden_City_by_Daniel_Mathis.jpg &
+
+exec dwm
+logout

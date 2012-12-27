@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Joe Dwm
+Comment=Dynamic window manager
+Exec=/home/joe/projects/jcgregorio/startdwm
+Icon=/usr/local/bin/dwm
+Type=XSession

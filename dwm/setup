@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo apt-get install dwm feh build-essential libx11-dev libxinerama-dev sharutils suckless-tools
