@@ -8,5 +8,8 @@ feh --bg-scale /usr/share/backgrounds/Warmlights.jpg &
 
 gnome-settings-daemon &
 
+trayer --expand true --widthtype request --transparent true --alpha 255 --edge bottom --align right &
+nm-applet &
+
 exec /usr/local/bin/dwm
 logout
