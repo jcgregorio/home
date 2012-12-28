@@ -1,11 +1,12 @@
 while true
 do
-  LOCALTIME=$(date +%I:%M   %d %b %Y)
-  xsetroot -name "$LOCALTIME"
+  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`"
   sleep 20s
 done &
 
-feh --bg-scale /usr/share/backgrounds/The_Forbidden_City_by_Daniel_Mathis.jpg &
+feh --bg-scale /usr/share/backgrounds/Warmlights.jpg &
 
-exec dwm
+gnome-settings-daemon &
+
+exec /usr/local/bin/dwm
 logout
