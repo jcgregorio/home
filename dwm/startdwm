@@ -1,15 +1,18 @@
+#!/usr/bin/env bash
 while true
 do
-  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`"
+  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`            "
   sleep 20s
 done &
-
-feh --bg-scale /usr/share/backgrounds/Warmlights.jpg &
 
 gnome-settings-daemon &
 
 trayer --expand true --widthtype request --transparent true --alpha 255 --edge bottom --align right &
-nm-applet &
 
-exec /usr/local/bin/dwm
+nm-applet &
+gnome-volume-control-applet &
+
+sleep 5 && feh --bg-scale /usr/share/backgrounds/space-05.jpg
+
+exec /usr/local/bin/dwm > /dev/null
 logout
