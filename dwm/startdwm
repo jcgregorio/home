@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 while true
 do
-  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`            "
+  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`               "
   sleep 20s
 done &
 
@@ -12,7 +12,9 @@ trayer --expand true --widthtype request --transparent true --alpha 255 --edge b
 nm-applet &
 gnome-volume-control-applet &
 
-sleep 5 && feh --bg-scale /usr/share/backgrounds/space-05.jpg
+sleep 15 && feh --bg-scale /usr/share/backgrounds/space-05.jpg &
 
-exec /usr/local/bin/dwm > /dev/null
-logout
+while true; do
+    # Log stderror to a file 
+    dwm 2> ~/.dwm.log
+done
