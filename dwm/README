@@ -1,0 +1,38 @@
+How I setup and run dwm under Ubuntu.
+
+SETUP
+=====
+
+1. Run ./setup to install all the packages, including the prebuilt version of dwm.
+   We won't actually run the prebuilt version, but it sets up some other nice stuff.
+
+2. Create /usr/share/dwm/ and copy startdwm into it.
+
+3. Use dwm_start.desktop as a template for /usr/share/xsession/joe.desktop.
+  The joe.desktop file will give you a login option to use dwm as your window
+  manager.
+
+4. Download dwm source, apply dwm_patches to the source then:
+
+   $ sudo make clean install
+
+5. Logout and when logging back in select Joe Dwm as your login shell.
+
+6. Restarts just restart dwm and don't launch all the background tasks again.
+
+7. The system tray, as provided by trayer, is only available on screen 1 and screen 0.
+
+NX
+==
+
+If you are running NX then you need to edit this config file:
+
+  /usr/NX/etc/node.cfg
+
+And add dwm as one of the shell options, I use CDE:
+
+  #
+  # Specify path and name of the command starting 'CDE'.
+  #
+  CommandStartCDE = "/usr/share/dwm/startdwm"
+
