@@ -7,14 +7,14 @@ done &
 
 gnome-settings-daemon &
 
-trayer --expand true --widthtype request --transparent true --alpha 255 --edge bottom --align right &
+trayer --expand true --widthtype request --edge bottom --align right &
 
 nm-applet &
 gnome-volume-control-applet &
 
 sleep 15 && feh --bg-scale /usr/share/backgrounds/space-05.jpg &
 
-while true; do
-    # Log stderror to a file 
-    dwm 2> ~/.dwm.log
-done
+export PATH=$PATH:$PATH/bin
+
+# Log stderror to a file 
+dwm 2> ~/.dwm.log
