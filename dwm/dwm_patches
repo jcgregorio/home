@@ -1,24 +1,58 @@
---- config.def.h	2013-02-08 11:02:46.804862675 -0500
-+++ config.def.h.orig	2012-12-27 21:15:59.746575110 -0500
-@@ -8,10 +8,10 @@
- static const char selbordercolor[]  = "#005577";
- static const char selbgcolor[]      = "#005577";
- static const char selfgcolor[]      = "#eeeeee";
--static const unsigned int borderpx  = 0;        /* border pixel of windows */
-+static const unsigned int borderpx  = 1;        /* border pixel of windows */
- static const unsigned int snap      = 32;       /* snap pixel */
- static const Bool showbar           = True;     /* False means no bar */
--static const Bool topbar            = False;     /* False means bottom bar */
-+static const Bool topbar            = True;     /* False means bottom bar */
- 
- /* tagging */
- static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-@@ -51,7 +51,7 @@
- 
- static Key keys[] = {
- 	/* modifier                     key        function        argument */
--	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
- 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
- 	{ MODKEY,                       XK_b,      togglebar,      {0} },
- 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+11c11
+< static const unsigned int borderpx  = 1;        /* border pixel of windows */
+---
+> static const unsigned int borderpx  = 0;        /* border pixel of windows */
+14c14
+< static const Bool topbar            = True;     /* False means bottom bar */
+---
+> static const Bool topbar            = False;     /* False means bottom bar */
+17c17
+< static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+---
+> static const char *tags[] = { "1", "2", "3", "q", "w", "e", "a", "s", "d" };
+38c38
+< #define MODKEY Mod1Mask
+---
+> #define MODKEY Mod4Mask
+49,50c49,50
+< static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+< static const char *termcmd[]  = { "uxterm", NULL };
+---
+> static const char *dmenucmd[] = { "dmenu_run", NULL };
+> static const char *termcmd[]  = { "gnome-terminal", NULL };
+54c54
+< 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+---
+> 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+59,60c59,60
+< 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+< 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+---
+> //	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+> //	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+73,76c73,76
+< 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+< 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+< 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+< 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+---
+> 	{ MODKEY,                       XK_z,      focusmon,       {.i = -1 } },
+> 	{ MODKEY,                       XK_x,      focusmon,       {.i = +1 } },
+> 	{ MODKEY|ShiftMask,             XK_z,      tagmon,         {.i = -1 } },
+> 	{ MODKEY|ShiftMask,             XK_x,      tagmon,         {.i = +1 } },
+80,86c80,86
+< 	TAGKEYS(                        XK_4,                      3)
+< 	TAGKEYS(                        XK_5,                      4)
+< 	TAGKEYS(                        XK_6,                      5)
+< 	TAGKEYS(                        XK_7,                      6)
+< 	TAGKEYS(                        XK_8,                      7)
+< 	TAGKEYS(                        XK_9,                      8)
+< 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+---
+> 	TAGKEYS(                        XK_q,                      3)
+> 	TAGKEYS(                        XK_w,                      4)
+> 	TAGKEYS(                        XK_e,                      5)
+> 	TAGKEYS(                        XK_a,                      6)
+> 	TAGKEYS(                        XK_s,                      7)
+> 	TAGKEYS(                        XK_d,                      8)
+> 	{ MODKEY|ShiftMask,             XK_p,      quit,           {0} },
