@@ -20,6 +20,8 @@ set ignorecase
 set smartcase
 set textwidth=78
 
+execute pathogen#infect()
+
 " Make tab completion work more like the shell.
 set wildmode=longest,list
 
@@ -52,6 +54,7 @@ au BufNewFile,BufRead *.gss set filetype=css
 " Import syntax highlighting and other goodies for Go.
 set rtp+=$HOME/go/misc/vim
 filetype plugin on
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 " }}}
 
 " Backups {{{
