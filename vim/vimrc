@@ -2,6 +2,9 @@
 " Author: joe@bitworking.org
 " Source: https://joe.gregorio@code.google.com/p/jcgregorio/vim
 " Make sure to link $HOME/.vimrc to this vimrc
+" Also install vim-pathogen, and then syntastic.
+" To get 256 colors just set TERM=gnome-256color in .bashrc, because
+" we always use gnome-terminal, so all the fancy detection stuff is a waste.
 "
 colorscheme joe
 set incsearch
@@ -114,3 +117,4 @@ nnoremap <M-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
 set noeb vb t_vb=
+set t_Co=256
