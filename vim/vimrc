@@ -5,8 +5,8 @@
 " Also install vim-pathogen, and then syntastic.
 " To get 256 colors just set TERM=gnome-256color in .bashrc, because
 " we always use gnome-terminal, so all the fancy detection stuff is a waste.
+" After running sudo apt-get install ncurses-term.
 "
-colorscheme joe
 set incsearch
 syntax on
 set hlsearch
@@ -19,6 +19,8 @@ set diffopt=filler,iwhite
 set ignorecase
 set smartcase
 set textwidth=78
+
+set rtp+=$HOME/jcgregorio/vim
 
 execute pathogen#infect()
 
