@@ -21,6 +21,8 @@ set smartcase
 set textwidth=78
 
 set rtp+=$HOME/jcgregorio/vim
+set t_Co=256
+colorscheme desert256
 
 execute pathogen#infect()
 
@@ -122,4 +124,3 @@ nnoremap <M-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
 set noeb vb t_vb=
-set t_Co=256
