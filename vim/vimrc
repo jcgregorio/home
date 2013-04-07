@@ -2,8 +2,7 @@
 " Author: joe@bitworking.org
 " Source: https://joe.gregorio@code.google.com/p/jcgregorio/vim
 " Make sure to link $HOME/.vimrc to this vimrc
-" Also install vim-pathogen, and then syntastic.
-" and https://github.com/msanders/snipmate.vim.git
+" Also install vim-pathogen, and then syntastic, and UltiSnips.
 " To get 256 colors just set TERM=gnome-256color in .bashrc, because
 " we always use gnome-terminal, so all the fancy detection stuff is a waste.
 " After running sudo apt-get install ncurses-term.
