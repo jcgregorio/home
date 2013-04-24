@@ -60,6 +60,7 @@ au BufNewFile,BufRead *.gss set filetype=css
 set rtp+=$HOME/go/misc/vim
 filetype plugin on
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go set textwidth=0
 " }}}
 
 " Backups {{{
