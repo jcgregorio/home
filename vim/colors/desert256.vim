@@ -268,6 +268,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Visual", "6b8e23", "f0e68c", "reverse")
     "VisualNOS
     call <SID>X("WarningMsg", "fa8072", "", "")
+    call <SID>X("MatchParen", "ffffff", "708090", "")
     "WildMenu
     "Menu
     "Scrollbar

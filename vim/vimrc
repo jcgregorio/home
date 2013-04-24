@@ -109,7 +109,7 @@ function! s:ExecuteInShell(command)
   silent! execute 'silent %!'. command
   silent! redraw
   silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
-  silent! execute 'nnoremap <silent> <buffer> <M-r> :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  silent! execute 'nnoremap <silent> <buffer> <C-r> :call <SID>ExecuteInShell(''' . command . ''')<CR>'
   silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
   echo 'Shell command ' . command . ' executed.'
 endfunction
@@ -121,7 +121,7 @@ function! ExecuteCurrentLineInShell()
   execute ':call <SID>ExecuteInShell('''.command.''')'
 endfunction
 
-nnoremap <M-e> :call ExecuteCurrentLineInShell()<CR>
+nnoremap <C-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
 set noeb vb t_vb=
