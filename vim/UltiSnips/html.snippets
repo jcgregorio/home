@@ -150,9 +150,10 @@ snip.rv = (snip.basename or 'unnamed') + '_submit'
 </form>
 endsnippet
 
-snippet h1 "<h1>"
-<h1 id="${1/[\w\d]+|( )/(?1:_:\L$0\E)/g}">${1}</h1>
+snippet h "<h[1-5]>" i
+<h$1 id="${2/[\w\d]+|( )/(?1:_:\L$0\E)/g}${VISUAL/[\w\d]+|()/(?1:_:\L$0\E)/g}">${2}${VISUAL}</h$1>
 endsnippet
+
 
 snippet head "<head>"
 <head>
@@ -203,6 +204,22 @@ endsnippet
 
 snippet p "paragraph"
 <p>${VISUAL}$0</p>
+endsnippet
+
+snippet b "bold"
+<b>${VISUAL}$0</b>
+endsnippet
+
+snippet em "emphasis"
+<em>${VISUAL}$0</em>
+endsnippet
+
+snippet code "code"
+<code>${VISUAL}$0</code>
+endsnippet
+
+snippet str "strong"
+<strong>${VISUAL}$0</strong>
 endsnippet
 
 snippet li "list item"
