@@ -7,6 +7,8 @@ SETUP
    We won't actually run the prebuilt version, but it sets up some other nice stuff.
 
 2. Create /usr/share/dwm/ and copy startdwm into it.
+2.1 Change permissions 
+  chmod 755 /usr/share/dwm/startdwm
 
 3. Use dwm_start.desktop as a template for /usr/share/xsession/joe.desktop.
   The joe.desktop file will give you a login option to use dwm as your window
