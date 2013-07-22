@@ -4,6 +4,7 @@
 sudo apt-get install mercurial git ncurses-term
 hg clone https://code.google.com/p/jcgregorio/
 
+mkdir ~/bin
 
 cd ~/jcgregorio/dwm
 ./setup

@@ -107,7 +107,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export GOROOT=$HOME/go
-export PATH=$PATH:$GOROOT/bin
+
+export PATH=$PATH:$GOROOT/bin:$HOME/bin
 export EDITOR=vim
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
