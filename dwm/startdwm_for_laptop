@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+while true
+do
+  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`  `acpi | sed 's#^[^,]*, ##' | sed 's#,.*##'`              "
+  sleep 20s
+done &
+
+gnome-settings-daemon &
+
+trayer --expand true --widthtype request --edge bottom --align right &
+
+nm-applet &
+gnome-volume-control-applet &
+
+sleep 15 && feh --bg-scale /usr/share/backgrounds/Gwallpaper-Black-Goobuntu-default.png &
+
+export PATH=$PATH:$PATH/bin
+
+# Log stderror to a file 
+dwm 2> ~/.dwm.log

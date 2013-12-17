@@ -1,0 +1,17 @@
+[ui]
+username = Joe Gregorio <joe.gregorio@gmail.com>
+verbose = True
+
+[extensions]
+hgext.mq =
+hgext.rebase =
+hgext.pager =
+hgext.bookmarks =
+prompt = /home/jcgregorio/hg-prompt/prompt.py
+record=
+
+[pager]
+pager = LESS='FSRX' less
+attend = log, diff
+
+

@@ -1,0 +1,39 @@
+#!/bin/bash
+# Copy and run this file from $HOME
+
+sudo apt-get install mercurial git ncurses-term
+hg clone https://code.google.com/p/jcgregorio/
+
+mkdir ~/bin
+
+cd ~/jcgregorio/dwm
+./setup
+# Follow the rest of README
+
+# Change terminal colors to light gray on black, font Liberation Mono, 9pt, scroll depth 10,000.
+
+mkdir --parents ~/.vim/tmp/backup
+mkdir --parents ~/.vim/tmp/swap
+ln -s /home/jcgregorio/jcgregorio/vim/vimrc ~/.vimrc
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+cd ~/.vim/bundle
+git clone https://github.com/scrooloose/syntastic.git
+
+cd ~/.vim/bundle
+git clone https://github.com/SirVer/ultisnips.git
+
+# Install go
+cd ~
+
+# Mercurial
+hg clone https://bitbucket.org/sjl/hg-prompt
+# Add to ~/.hgrc
+ln -s /home/jcgregorio/jcgregorio/hgrc ~/.hgrc
+ln -s /home/jcgregorio/jcgregorio/bashrc ~/.bashrc
+
+# Test 256 colors
+perl ~/jcgregorio/256colors2.pl
