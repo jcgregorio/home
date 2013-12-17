@@ -63,6 +63,14 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go set textwidth=0
 " }}}
 
+" C++ {{{
+filetype plugin on
+autocmd FileType cpp set tabstop=4
+autocmd FileType cpp set softtabstop=4
+autocmd FileType cpp set shiftwidth=4
+" }}}
+
+
 " Backups {{{
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
