@@ -90,6 +90,11 @@ noremap <C-l>  <C-w>l
 noremap <leader>v <C-w>v
 " }}}
 
+" {{{ Replace
+" Highlight current word and replace in entire file.
+nnoremap <c-n> *:%s///g<left><left>
+" }}}
+
 nnoremap <m-c> :make<cr>
 
 " Get an HTML representation of the current buffer including syntax
