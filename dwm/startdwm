@@ -16,5 +16,7 @@ sleep 15 && feh --bg-scale /usr/share/backgrounds/Gwallpaper-Black-Goobuntu-defa
 
 export PATH=$PATH:$PATH/bin
 
+dmenu_path &
+
 # Log stderror to a file 
 dwm 2> ~/.dwm.log
