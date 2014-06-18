@@ -62,8 +62,14 @@ au BufNewFile,BufRead *.gss set filetype=css
 
 " Go {{{
 " Import syntax highlighting and other goodies for Go.
-set rtp+=$HOME/go/misc/vim
-filetype plugin on
+
+filetype off
+filetype plugin indent off
+set runtimepath+=$HOME/go/misc/vim
+filetype plugin indent on
+syntax on
+
+
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go set textwidth=0
 " }}}
@@ -75,6 +81,9 @@ autocmd FileType cpp set softtabstop=4
 autocmd FileType cpp set shiftwidth=4
 " }}}
 
+" Markdown {{{
+au BufRead,BufNewFile *.md set filetype=markdown
+" }}}
 
 " Backups {{{
 set backupdir=~/.vim/tmp/backup// " backups
@@ -144,26 +153,26 @@ nnoremap <C-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
 set noeb vb t_vb=
-let g:ycm_global_ycm_extra_conf ='~/projects/chrome/src/tools/vim/chromium.ycm_extra_conf.py'
-let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_global_ycm_extra_conf ='~/projects/chrome/src/tools/vim/chromium.ycm_extra_conf.py'
+" let g:ycm_collect_identifiers_from_tags_files = 1
 
-function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
+"function! g:UltiSnips_Complete()
+"    call UltiSnips_ExpandSnippet()
+"    if g:ulti_expand_res == 0
+"        if pumvisible()
+"            return "\<C-n>"
+"        else
+"            call UltiSnips_JumpForwards()
+"            if g:ulti_jump_forwards_res == 0
+"               return "\<TAB>"
+"            endif
+"        endif
+"    endif
+"    return ""
+"endfunction
+"
+"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsListSnippets="<c-e>"
 
 set modeline

@@ -1,0 +1,7 @@
+snippet sort "sort"
+type $1Slice []$1
+
+func (p $1Slice) Len() int           { return len(p) }
+func (p $1Slice) Less(i, j int) bool { return p[i] < p[j] }
+func (p $1Slice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+endsnippet
