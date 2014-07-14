@@ -63,8 +63,10 @@ au BufNewFile,BufRead *.gss set filetype=css
 " Go {{{
 " Import syntax highlighting and other goodies for Go.
 
-filetype off
-filetype plugin indent off
+if exists("g:did_load_filetypes")
+  filetype off
+  filetype plugin indent off
+endif
 set runtimepath+=$HOME/go/misc/vim
 filetype plugin indent on
 syntax on
