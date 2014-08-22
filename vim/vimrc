@@ -71,6 +71,7 @@ set runtimepath+=$HOME/go/misc/vim
 filetype plugin indent on
 syntax on
 
+let g:gofmt_command = "goimports"
 
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go set textwidth=0
@@ -178,3 +179,7 @@ set noeb vb t_vb=
 "let g:UltiSnipsListSnippets="<c-e>"
 
 set modeline
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
