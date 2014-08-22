@@ -15,3 +15,26 @@ func main() {
 	$0fmt.Println("Hello, 世界")
 }
 endsnippet
+
+snippet testing "testing"
+package $1
+
+import (
+	"testing"
+)
+
+${0}
+endsnippet
+
+
+snippet got "got"
+if got, want := $1, $2; got != want {
+	t.Errorf("$3: Got %v Want %v", got, want)
+}
+endsnippet
+
+snippet ok "ok"
+if $1, ok := $2[$3]; !ok {
+	$4
+}
+endsnippet
