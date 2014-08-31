@@ -1,20 +1,33 @@
 #!/bin/bash
 # Copy and run this file from $HOME
 
-sudo apt-get install mercurial git ncurses-term
-hg clone https://code.google.com/p/jcgregorio/
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git ncurses-term screen ncurses-dev \
+  mercurial python python-dev build-essential cmake
 
 mkdir ~/bin
-
-cd ~/jcgregorio/dwm
-./setup
-# Follow the rest of README
-
-# Change terminal colors to light gray on black, font Liberation Mono, 9pt, scroll depth 10,000.
-
+mkdir ~/golib
 mkdir --parents ~/.vim/tmp/backup
 mkdir --parents ~/.vim/tmp/swap
 ln -s /home/jcgregorio/jcgregorio/vim/vimrc ~/.vimrc
+ln -s /home/jcgregorio/jcgregorio/bashrc ~/.bashrc
+
+# Install go
+cd ~
+GOVER=go1.3.1.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/$GOVER
+tar -xzf $GOVER
+
+#Install latest vim
+cd ~
+mkdir src
+cd src
+hg clone https://vim.googlecode.com/hg/ vim
+cd vim/src
+./configure --with-features=huge --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config
+make
+sudo make install
 
 mkdir -p ~/.vim/autoload ~/.vim/bundle; \
 curl -Sso ~/.vim/autoload/pathogen.vim \
@@ -26,14 +39,10 @@ git clone https://github.com/scrooloose/syntastic.git
 cd ~/.vim/bundle
 git clone https://github.com/SirVer/ultisnips.git
 
-# Install go
-cd ~
-
-# Mercurial
-hg clone https://bitbucket.org/sjl/hg-prompt
-# Add to ~/.hgrc
-ln -s /home/jcgregorio/jcgregorio/hgrc ~/.hgrc
-ln -s /home/jcgregorio/jcgregorio/bashrc ~/.bashrc
+cd ~/.vim/bundle
+git clone https://github.com/Valloric/YouCompleteMe.git
+cd YouCompleteMe
+./install.sh
 
 # Test 256 colors
 perl ~/jcgregorio/256colors2.pl

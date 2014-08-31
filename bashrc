@@ -3,17 +3,10 @@
 # for examples
 TERM=gnome-256color
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
-
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -43,22 +36,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
-D=$'\e[00m'
-PINK=$'\e[01;35m'
-GREEN=$'\e[01;32m'
-ORANGE=$'\e[01;33m'
-
-hg_ps1() {
-  hg prompt --angle-brackets "<on ${GREEN}<branch>${D}>< at ${GREEN}<bookmark>>${D}${PINK}<status>${D}< [${ORANGE}<patches|hide_unapplied>${D}]>" 2> /dev/null
-}
-
-if [ "$color_prompt" = yes ]; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(hg_ps1)\n\$ '
-else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $(hg_ps1) \n\$ '
-fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -107,8 +84,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export GOROOT=$HOME/go
+export GOPATH=$HOME/golib
 
-export PATH=$PATH:$GOROOT/bin:$HOME/bin
+export PATH=/usr/local/bin:$PATH:$GOROOT/bin:$HOME/bin:$GOPATH/bin
 export EDITOR=vim
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
@@ -119,5 +97,6 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH=$HOME/depot_tools:$PATH
+export CDPATH=$GOPATH/src
 
-[[ $- == *i* ]]   &&   . /home/jcgregorio/git-prompt/git-prompt.sh
+[[ $- == *i* ]]   &&   . $HOME/git-prompt/git-prompt.sh
