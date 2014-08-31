@@ -17,8 +17,10 @@ mkdir ~/bin
 mkdir ~/golib
 mkdir --parents ~/.vim/tmp/backup
 mkdir --parents ~/.vim/tmp/swap
-ln -s /home/jcgregorio/jcgregorio/vim/vimrc ~/.vimrc
-ln -s /home/jcgregorio/jcgregorio/bashrc ~/.bashrc
+ln -s $HOME/jcgregorio/vim/vimrc ~/.vimrc
+rm ~/.bashrc
+ln -s $HOME/jcgregorio/bashrc ~/.bashrc
+source ~/.bashrc
 
 # Install go
 cd ~
@@ -49,6 +51,7 @@ git clone https://github.com/SirVer/ultisnips.git
 cd ~/.vim/bundle
 git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe
+git submodule update --init --recursive
 ./install.sh
 
 go get code.google.com/p/go.tools/cmd/goimports
