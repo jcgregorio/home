@@ -99,4 +99,4 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH=$HOME/depot_tools:$PATH
 export CDPATH=$GOPATH/src
 
-[[ $- == *i* ]]   &&   . $HOME/git-prompt/git-prompt.sh
+[[ $- == *i* ]]   &&   . $HOME/jcgregorio/git-prompt/git-prompt.sh
