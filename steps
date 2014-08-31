@@ -1,5 +1,9 @@
 #!/bin/bash
 # Copy and run this file from $HOME
+#
+# Get this by running:
+#
+#  git clone https://github.com/jcgregorio/home.git jcgregorio
 
 sudo apt-get update
 sudo apt-get upgrade
