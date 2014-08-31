@@ -1,0 +1,209 @@
+//  This is raw asciidoc file. The HTML rendered page is at  http://volnitsky.com/project/git-prompt
+
+= GIT Prompt
+
+* Repo: httpx://github.com/lvv/scc[GitHub],  httpx://bitbucket.org/lvv/scc[BitBucket] +
+* License:  httpx://www.gnu.org/licenses/gpl-3.0.html[GPL3]
+
+:v-p:		http://volnitsky.com/project
+:compact-option: compact
+
+
+== Basic Usage
+
+image:screenshot-prompt-basic.png[basic usage]
+
+Digit [red]*1* on 3rd line is `false(1)` exit code. Also on non-zero exit code
+terminal bell is sounded.  Bell is turned off by default (to set softer
+terminal bell use `setterm`).
+
+
+== GIT
+
+Branch and files are colored according to state. "M" stands for master. 
+
+image:screenshot-prompt-git.png[git module screenshot]
+
+.Branch and Files Colors
+[cols="^3,^3,12",frame="topbot",options="header"]
+|================================================================
+| *Branch*                 |   *File*                 | *Meaning*
+| [darkblue]#dark blue#    |                          | Clean repo
+| [green]#green#           |  [green]#green#          | Modified or new file. Modifications are in index but not in repo yet.
+| [darkred]#dark red#      |  [darkred]#dark red#     | Modified and tracked by repo, but modifications not added to index yet.
+| [lightblue]#light blue#  |  [lightblue]#light blue#      | Untracked file.
+| [red]#light red#         |                          | Detached Head
+| [magenta]#magenta#       |                          | In middle of doing something 
+|================================================================
+
+
+==  Subversion/SVN 
+image:screenshot-svn.png[svn module screenshot]
+
+SVN module disabled by default because even on moderate sized working
+directories there is noticeable delay for prompt display.  SVN is slower than
+GIT.  Enable if needed in <<config,config>> 
+
+==  Mercurial/HG
+HG module was developed by Lee Nussbaum `<wln AT scrunch.org>`.
+
+
+== Labels
+
+Labels are visual cues to help figure out what terminal is running what command.
+It is generalization of xterm-title but differ from xterm-title that it
+can be displayed in other places (on Screen(1) windows titles for example).
+Also label can display currently executed command (when bash prompt obviously
+is not displayed). Because labels have less space then prompt, instead of full path
+only last dir is shown.
+On screenshot below labels are in red ovals.
+
+image:screenshot-labels.png["labels screenshot", width="300", link="screenshot-labels.png"]
+
+The `screen(1)` status line at bottom of smaller gnome-terminal is displayed with
+following line in `~/.screenrc`:
+
+---------
+caption always "%{= kw}%-w%{= bw}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+---------
+
+
+== Simple AutoJump
+
+AutoJump is python script from Joel Schaerer providing shortcuts for jumping
+to directories you once visited.  Git-prompt have built-in, simplified
+autojump. It is only about 10 lines of bash code (vs original 100+ python
+LOC), there is no database. It remembers only directories from current
+session. It selects not most frequent dir, but last visited. Matches are done
+from beginning of of dir name (not path name).
+
+-----------------
+cd /tmp                                                                                                                                      
+cd "~/long dir mp3"
+cd "~/long dir mp4"
+cd /tmp
+cd /var/tmp
+cd /etc 
+cd
+j t     # same as  cd /var/tmp
+j .*3   # same as  cd "~/long dir mp3"
+-------------
+
+
+== Install
+Download  link:git-prompt.sh[] or get it with GIT:
+
+------------------
+  git clone git://github.com/lvv/git-prompt.git
+---------------
+
+Put following command at the end of your profile (`~/.bash_profile` or `~/.profile`) 
+
+--------------------
+  [[ $- == *i* ]]   &&   . /path/to/git-prompt.sh
+---------------------
+
+There might be your old prompt defined too.  You can comment it out. 
+Some distros also have `/etc/bashrc` or `/etc/bash/bashrc` with distro default
+prompt.
+
+
+
+== GIT config 
+
+GIT-PROMPT requires following GIT's option to be set:
+
+-------------------------
+git config [--global] core.quotepath off
+git config [--global] --unset svn.pathnameencoding
+git config [--global] --unset i18n.logoutputencoding
+-----------------------------
+
+
+== GIT-PROMPT config 
+[[config]]
+
+Is optional.  If config file is not found then git-prompt uses defaults. 
+Defaults are listed in example `git-prompt.conf`.  Git-prompt looks (in listed order)
+for config file in following locations:
+
+* `/etc/git-prompt.conf`
+* `~/.git-prompt.conf`
+
+Copy example config `git-prompt.conf` 
+to any of above locations and customize as needed.
+
+
+== Limitations
+
+* cd-ing into something like linux kernel git working directory for the 1st
+  time (with cold cache) might take up to 10 seconds (that is how long `git status` executes).
+  Use `vcs_ignore_dir_list` in config if you want to ingnore such dirs.
+* Because you will be always reminded about dirty repo (not checked-in files),
+  you will maintain `.gitignore` and commit more often.
+* This prompt is most useful if your screen have enough width.
+  If this is not the case, you might want to disable file list display (`max_file_list_length=0`).
+* When prompt is longer than screen-width it wraps to second line. This is always undesirable. 
+  Because of bug in `gnome-terminal` (or `readline` ?) some color escape codes can be visible on second line. 
+  I've reported gnome-terminal bug.  Again, you can disable file list display or limit length (`max_file_list_length`).
+* By default some terminals display ascii color with maximum color saturation
+  which makes colored text of different perceptual brightness.  This makes it hard to read. 
+  If your terminal colors are configurable, try change it to softer (pastel)
+  colors.
+
+
+== Dependencies
+
+Most probably you don't need to install anything because not optional
+dependencies are standard unix utils. 
+
+* bash  (tested with v3.2.33) 
+* sed
+* tput  (terminfo)
+* tty  (core utils)
+* grep
+* locale  (glibc)
+* id   (core utils)
+* cksum (core utils)
+
+* git  (optional)
+* svn  (optional)
+* hg   (optional)
+
+
+== Todo
+
+* httpx://jonisalonen.com/2012/your-bash-prompt-needs-this/[]
+* httpx://tldp.org/HOWTO/Bash-Prompt-HOWTO/x810.html[Beep after long running command]
+* httpx://briancarper.net/blog/248/[Sync bash history]
+* VIM module needs to be moved out of GIT module
+
+include::../volnitsky.com/project/howto-submit-patch.txt[]
+
+Nobody will use git-prompt if there will be delay in prompt display.
+Try to avoid use of external commands and
+subshells (backticks) in prompt_command_function.  It is ok to use
+time consuming ops in postconfig which is executed only once. 
+
+== Authors
+- Leonid Volnitsky (original author) <leonid@volnitsky.com>,  http://volnitsky.com
+- Niklas Hofer (CWD truncation) <niklas+dev AT lanpartei.de>, httpx://github.com/niklas/[]
+- Lee Nussbaum  (HG support) <lee.nussbaum AT gmail.com>, httpx://github.com/wln[]
+- Albert Vernon http://xenoclub.wordpress.com[]
+- Amir Yalon httpx://github.com/amiryal[]  
+- Martin httpx://github.com/jerrywho[]  <JerryWho AT gmx.de>
+- Alexander Goldstein (emacs-shell, prompt chars) httpx://github.com/alexg0[]
+- Dmitry <uok AT gmx.net> (bash completion)
+- Sergey Shepelev <temotor AT gmail.com>
+- Robert Wahler <robert AT gearheadforhire.com>
+- Gustavo Delfino <gdelfino AT gmail.com>
+- Dan Bravender <dan.bravender AT gmail.com>
+- Thomas Geffert <thomas.geffert AT arcutronix.com>
+- Tibor Simko <tibor.simko AT cern.ch>
+
+
+[bibliography]
+.References
+- [[[1]]] 'Bash Prompt HOWTO', http://tldp.org/HOWTO/Bash-Prompt-HOWTO/index.html
+- [[[2]]] 'BASH Frequently Asked Questions', http://mywiki.wooledge.org/BashFAQ
+
