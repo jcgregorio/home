@@ -38,3 +38,23 @@ if $1, ok := $2[$3]; !ok {
 	$4
 }
 endsnippet
+
+
+snippet if "if "
+if err != nil {
+	$0
+}
+endsnippet
+
+snippet ife "if err"
+if err := $1;err != nil {
+	$0
+}
+endsnippet
+
+snippet ifo "if ok"
+if $1, ok := $2[$3]; !ok {
+	$0
+}
+endsnippet
+
