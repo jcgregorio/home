@@ -6,6 +6,9 @@ sudo apt-get upgrade
 sudo apt-get install git ncurses-term screen ncurses-dev \
   mercurial python python-dev build-essential cmake
 
+git config --global user.email "joe@bitworking.org"
+git config --global user.name "Joe Gregorio"
+
 mkdir ~/bin
 mkdir ~/golib
 mkdir --parents ~/.vim/tmp/backup
