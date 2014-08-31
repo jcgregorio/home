@@ -17,6 +17,7 @@ mkdir ~/bin
 mkdir ~/golib
 mkdir --parents ~/.vim/tmp/backup
 mkdir --parents ~/.vim/tmp/swap
+rm ~/.vimrc
 ln -s $HOME/jcgregorio/vim/vimrc ~/.vimrc
 rm ~/.bashrc
 ln -s $HOME/jcgregorio/bashrc ~/.bashrc
