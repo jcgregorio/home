@@ -51,5 +51,8 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe
 ./install.sh
 
+go get code.google.com/p/go.tools/cmd/goimports
+
+
 # Test 256 colors
 perl ~/jcgregorio/256colors2.pl
