@@ -45,11 +45,8 @@ curl -Sso ~/.vim/autoload/pathogen.vim \
 
 cd ~/.vim/bundle
 git clone https://github.com/scrooloose/syntastic.git
-
-cd ~/.vim/bundle
 git clone https://github.com/SirVer/ultisnips.git
-
-cd ~/.vim/bundle
+git clone https://github.com/vim-jp/vim-go-extra.git
 git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe
 git submodule update --init --recursive
