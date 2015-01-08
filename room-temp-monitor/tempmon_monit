@@ -1,0 +1,13 @@
+check process tempmon with pidfile /var/run/tempmon.pid
+   start program = "/etc/init.d/tempmon start"
+   stop program = "/etc/init.d/tempmon stop"
+   depends on tempmon_init
+   depends on tempmon_exe
+
+check file tempmon_init
+  with path /etc/init.d/tempmon
+  if changed timestamp then restart
+
+check file tempmon_exe
+  with path /usr/local/bin/tempmon
+  if changed timestamp then restart
