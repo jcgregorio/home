@@ -178,6 +178,9 @@ set noeb vb t_vb=
 "let g:UltiSnipsJumpForwardTrigger="<tab>"
 "let g:UltiSnipsListSnippets="<c-e>"
 
+" tags files should be looked for in parent dirs.
+set tags=tags;
+
 set modeline
 
 let g:UltiSnipsExpandTrigger="<c-j>"
