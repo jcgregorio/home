@@ -8,7 +8,8 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install git ncurses-term screen ncurses-dev \
-  mercurial python python-dev build-essential cmake
+  mercurial python python-dev build-essential cmake \
+  bash-completion
 
 git config --global user.email "joe@bitworking.org"
 git config --global user.name "Joe Gregorio"
@@ -39,9 +40,8 @@ cd vim/src
 make
 sudo make install
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-curl -Sso ~/.vim/autoload/pathogen.vim \
-    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 cd ~/.vim/bundle
 git clone https://github.com/scrooloose/syntastic.git
