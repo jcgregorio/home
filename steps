@@ -25,7 +25,7 @@ source ~/.bashrc
 
 # Install go
 cd ~
-GOVER=go1.3.1.linux-amd64.tar.gz
+GOVER=go1.4.2.linux-amd64.tar.gz
 wget https://storage.googleapis.com/golang/$GOVER
 tar -xzf $GOVER
 
@@ -55,6 +55,9 @@ git submodule update --init --recursive
 
 go get code.google.com/p/go.tools/cmd/goimports
 
+# Install depot_tools
+cd
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 # Test 256 colors
 perl ~/jcgregorio/256colors2.pl
