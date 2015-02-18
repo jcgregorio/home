@@ -107,8 +107,13 @@ snip.rv = snip.fn and 'Hallo' or 'Nothin'
 endsnippet
 
 snippet div "<div>"
-<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
-   $0
+<div>
+  $0
+</div>
+endsnippet
+
+snippet divi "<div id=>"
+<div id=${1:ID}>
 </div>
 endsnippet
 
