@@ -59,5 +59,8 @@ go get code.google.com/p/go.tools/cmd/goimports
 cd
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
+# Install cloud tools.
+curl https://sdk.cloud.google.com | bash
+
 # Test 256 colors
 perl ~/jcgregorio/256colors2.pl

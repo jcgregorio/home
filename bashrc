@@ -102,7 +102,7 @@ export CDPATH=$GOPATH/src/skia.googlesource.com
 [[ $- == *i* ]]   &&   . $HOME/jcgregorio/git-prompt/git-prompt.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/jcgregorio/google-cloud-sdk/path.bash.inc'
+source $HOME'/google-cloud-sdk/path.bash.inc'
 
 # The next line enables bash completion for gcloud.
-source '/home/jcgregorio/google-cloud-sdk/completion.bash.inc'
+source $HOME'/google-cloud-sdk/completion.bash.inc'
