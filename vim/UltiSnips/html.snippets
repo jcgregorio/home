@@ -10,6 +10,27 @@ def x(snip):
         snip.rv = ""
 endglobal
 
+snippet cust "CustomEvent"
+var detail = {$1};
+this.dispatchEvent(new CustomEvent('change', {detail: detail}));
+$0
+endsnippet
+
+
+snippet pretty "prettyprint"
+<pre class=prettyprint><code>$1</code></pre>
+$0
+endsnippet
+
+snippet pub "polymer 0.5 publish"
+publish: {
+  $1: {
+    value: $2,
+    reflect: true,
+  },
+},
+endsnippet
+
 #############
 # Shortcuts #
 #############
@@ -291,6 +312,44 @@ snippet poly "Polymer element"
     });
   </script>
 </polymer-element>
+endsnippet
+
+
+snippet poly9 "Polymer 0.9+ element"
+<!-- The <$1> custom element declaration.
+
+  Attributes:
+	Events:
+	Methods:
+-->
+
+<dom-module id="$1">
+  <style>
+  </style>
+  <template>
+    $2
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "$1",
+    ready: function() {
+    },
+    properties: {
+      aprop: {
+        type: String,
+        value: ""
+      }
+    },
+  });
+</script>
+endsnippet
+
+snippet repeat "Polymer 0.9+ repeat template"
+<template is="dom-repeat" items="{{$1}}">
+  $0
+</template>
 endsnippet
 
 # vim:ft=snippets:
