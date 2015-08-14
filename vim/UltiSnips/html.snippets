@@ -376,6 +376,17 @@ snippet poly9 "Polymer 0.9+ element"
 </script>
 endsnippet
 
+snippet prop "Polymer 0.9+ properties"
+properties: {
+  $1: {
+    type: String,
+    value: "$2",
+		reflectToAttribute: false,
+		observer: "$1Change",
+  },
+},
+endsnippet
+
 snippet repeat "Polymer 0.9+ repeat template"
 <template is="dom-repeat" items="{{$1}}">
   $0
