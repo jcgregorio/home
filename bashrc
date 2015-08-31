@@ -99,7 +99,7 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export PATH=$HOME/depot_tools:$PATH
-export CDPATH=$GOPATH/src/skia.googlesource.com
+export CDPATH=$GOPATH/src/go.skia.org/infra
 
 [[ $- == *i* ]]   &&   . $HOME/jcgregorio/git-prompt/git-prompt.sh
 
