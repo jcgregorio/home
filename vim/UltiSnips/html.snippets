@@ -60,6 +60,15 @@ snippet clos "Immediately-Invoked Closure"
 })();
 endsnippet
 
+snippet ae "ele.addEventListener"
+$$$('#$1').addEventListener('$2', function(e) {
+	$0
+});
+endsnippet
+
+snippet ele "$$$('#id')."
+$$$('#$1').$0
+endsnippet
 
 #############
 # Shortcuts #
@@ -364,14 +373,10 @@ snippet poly9 "Polymer 0.9+ element"
 <script>
   Polymer({
     is: "$1",
+
     ready: function() {
     },
-    properties: {
-      aprop: {
-        type: String,
-        value: ""
-      }
-    },
+
   });
 </script>
 endsnippet
@@ -393,4 +398,10 @@ snippet repeat "Polymer 0.9+ repeat template"
 </template>
 endsnippet
 
+snippet list "Polymer 1.0 listeners"
+listeners: {
+	"$1.tap": "_$1Tap",
+	$0
+},
+endsnippet
 # vim:ft=snippets:

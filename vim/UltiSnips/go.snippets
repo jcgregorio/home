@@ -58,3 +58,10 @@ if $1, ok := $2[$3]; !ok {
 }
 endsnippet
 
+snippet flags "flags"
+// flags
+var (
+	$1 = flag.String("$1", "$2", "$3")
+	$0
+)
+endsnippet
