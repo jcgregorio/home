@@ -55,6 +55,11 @@ git submodule update --init --recursive
 
 go get code.google.com/p/go.tools/cmd/goimports
 
+go get -u github.com/nsf/gocode
+cd $GOPATH/src/github.com/nsf/gocode/vim
+./update.sh
+
+
 # Install depot_tools
 cd
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
