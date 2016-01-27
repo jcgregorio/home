@@ -404,4 +404,31 @@ listeners: {
 	$0
 },
 endsnippet
+
+
+
+snippet stamp "Stamp element"
+<!-- The <$1> custom element declaration.
+
+  Attributes:
+	Events:
+	Methods:
+-->
+
+<template id="$1">
+  <host-content select="*"></host-content>
+</template>
+
+<script type="text/javascript" charset="utf-8">
+  (function() {
+    Stamp.newElement('$1', {
+      createdCallback: function() {
+			  Stamp.elementExpand(this);
+      },
+    });
+  })();
+</script>
+
+endsnippet
+
 # vim:ft=snippets:
