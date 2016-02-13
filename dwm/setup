@@ -1,2 +1,14 @@
 #!/usr/bin/env bash
-sudo apt-get install dwm feh build-essential libx11-dev libxinerama-dev sharutils suckless-tools trayer acpi gnome-applets
+sudo apt-get install dwm feh build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev sharutils suckless-tools trayer acpi gnome-applets
+sudo mkdir --parents /usr/share/dwm
+sudo cp startdwm /usr/share/dwm/
+sudo chmod 755 /usr/share/dwm/startdwm
+sudo cp dwm_start.desktop /usr/share/xsessions/joe.desktop
+mkdir ~/src
+cd ~/src
+wget http://dl.suckless.org/dwm/dwm-6.1.tar.gz
+tar -xzf dwm-6.1.tar.gz
+cd ~/src/dwm-6.1
+cp ~/jcgregorio/dwm/config.def.h .
+cp ~/jcgregorio/dwm/config.mk .
+sudo make clean install
