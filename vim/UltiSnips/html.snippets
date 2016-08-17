@@ -398,6 +398,12 @@ snippet repeat "Polymer 0.9+ repeat template"
 </template>
 endsnippet
 
+snippet if "Polymer 0.9+ if template"
+<template is="dom-if" if="{{$1}}">
+  $0
+</template>
+endsnippet
+
 snippet list "Polymer 1.0 listeners"
 listeners: {
 	"$1.tap": "_$1Tap",

@@ -98,6 +98,8 @@ set backup                        " enable backups
 " Naviate Errors {{{
 nnoremap <m-Down> :cnext<cr>
 nnoremap <m-Up> :cprevious<cr>
+nnoremap <C-z> :cnext<cr>
+nnoremap <C-a> :cprevious<cr>
 " }}}
 
 " {{{ Easy buffer navigation
