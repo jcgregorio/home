@@ -75,3 +75,28 @@ const (
 	$0
 )
 endsnippet
+
+
+snippet tc "testcase"
+	testCases := []struct {
+		value    $1
+		expected $2
+		message  string
+	}{
+		{
+			value:   $3,
+			expected: $4,
+			message: "$5",
+		},
+	}
+
+	for _, tc := range testCases {
+		if got, want := $6(tc.value), tc.expected; got!=want {
+			t.Errorf("Failed case Got %v Want %v: %s", got, want, tc.message)
+		}
+	}
+endsnippet
+
+snippet xml "xml"
+\`xml:"$1"\`
+endsnippet

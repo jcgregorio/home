@@ -14,7 +14,7 @@
 "
 set incsearch
 syntax on
-syn sync minlines=1000
+autocmd BufEnter * :syntax sync fromstart
 set hlsearch
 set tabstop=2
 set softtabstop=2
@@ -189,3 +189,5 @@ set modeline
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+:set statusline=%F%m%r%h%w\ [%Y]\ [len=%L]\ [ch=\%03.3b\ 0x\%02.2B]\ pos=%04l,%04v\ [%p%%]
+:set laststatus=2
