@@ -90,7 +90,7 @@ fi
 export GOROOT=$HOME/go
 export GOPATH=$HOME/golib
 
-export PATH=/usr/local/bin:$HOME/depot_tools:$PATH:$GOROOT/bin:$HOME/bin:$GOPATH/bin
+export PATH=/usr/local/bin:$HOME/depot_tools:$PATH:$GOROOT/bin:$HOME/bin:$GOPATH/bin:$HOME/node/bin
 export EDITOR=vim
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
