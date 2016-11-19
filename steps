@@ -26,7 +26,7 @@ source ~/.bashrc
 
 # Install go
 cd ~
-GOVER=go1.5.3.linux-amd64.tar.gz
+GOVER=go1.7.3.linux-amd64.tar.gz
 wget https://storage.googleapis.com/golang/$GOVER
 tar -xzf $GOVER
 
@@ -66,7 +66,7 @@ cd
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 # Install cloud tools.
-curl https://sdk.cloud.google.com | bash
+# curl https://sdk.cloud.google.com | bash
 
 # Test 256 colors
 perl ~/jcgregorio/256colors2.pl
