@@ -72,7 +72,7 @@ set runtimepath+=$HOME/jcgregorio/vim/go
 filetype plugin indent on
 syntax on
 
-let g:gofmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go set textwidth=0
