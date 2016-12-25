@@ -1,9 +1,10 @@
 [Unit]
-Description=userve
+Description=sshtunnel
 Wants=network-online.target
 
 [Service]
-ExecStart=ssh -R "10022:*:22" jcgregorio@bitworking.org
+Environment=HOME=/home/jcgregorio
+ExecStart=/usr/bin/ssh -T -R "10022:*:22" jcgregorio@bitworking.org
 
 Restart=always
 User=jcgregorio
