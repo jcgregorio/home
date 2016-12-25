@@ -1,11 +1,13 @@
 [Unit]
 Description=sshtunnel
 Wants=network-online.target
+Wants=sshd.service
 
 [Service]
 Environment=HOME=/home/jcgregorio
-ExecStart=/usr/bin/ssh -T -R "10022:*:22" jcgregorio@bitworking.org
+ExecStart=/usr/bin/ssh -NT -R "10022:*:22" jcgregorio@bitworking.org
 
+RestartSec=3
 Restart=always
 User=jcgregorio
 Group=jcgregorio
