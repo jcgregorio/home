@@ -1,0 +1,14 @@
+[Unit]
+Description=userve
+Wants=network-online.target
+
+[Service]
+ExecStart=ssh -R "10022:*:22" jcgregorio@bitworking.org
+
+Restart=always
+User=jcgregorio
+Group=jcgregorio
+LimitNOFILE=10000
+
+[Install]
+WantedBy=multi-user.target
