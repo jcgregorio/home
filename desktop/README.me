@@ -1,0 +1,14 @@
+A service file doing remote port forwarding
+from bitworking.org back to the desktop machine.
+
+Note that the GCE machine needs to have
+the following added to /etc/ssh/sshd_config.
+
+    GatewayPorts  yes
+
+Then copy the service file, on the desktop machine,
+to /etc/systemd/system/sshtunnel.service, and run
+
+    sudo systemctl daemon-reload
+    sudo systemctl restart sshtunnel.service
+  
