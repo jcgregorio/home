@@ -1,0 +1,223 @@
+{
+  "G": {
+    "prefix": "G",
+    "body": [
+      "𝔾<sup>2</sup>$0"
+    ],
+    "description": "G2"
+  },
+  "R": {
+    "prefix": "R",
+    "body": [
+      "ℝ<sup>2</sup>"
+    ],
+    "description": "R2"
+  },
+  "canvas": {
+    "prefix": "canvas",
+    "body": [
+      "<canvas id=${1:ID} width=${2:500} height=${3:500}>$0"
+    ],
+    "description": "<canvas>"
+  },
+  "co": {
+    "prefix": "co",
+    "body": [
+      "<!-- $1 -->$0"
+    ],
+    "description": "HTML"
+  },
+  "css": {
+    "prefix": "css",
+    "body": [
+      "<style type='text/css' media='screen'>",
+      "    $0",
+      "</style>"
+    ],
+    "description": "style"
+  },
+  "dl": {
+    "prefix": "dl",
+    "body": [
+      "<dl>",
+      "  <dt>$1</dt>",
+      "  <dd>$2</dd>",
+      "</dl>"
+    ],
+    "description": "definition"
+  },
+  "html": {
+    "prefix": "html",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<head>",
+      "    <title>${1}</title>",
+      "    <meta charset='utf-8' />",
+      "        <meta http-equiv='X-UA-Compatible' content='IE=egde,chrome=1'>",
+      "        <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+      "</head>",
+      "<body>",
+      "  ${2}",
+      "</body>",
+      "</html>"
+    ],
+    "description": "HTML"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "<template is='dom-if' if='{{$1}}'>",
+      "  $0",
+      "</template>"
+    ],
+    "description": "Polymer"
+  },
+  "img": {
+    "prefix": "img",
+    "body": [
+      "<img src='$0'/>"
+    ],
+    "description": "Image"
+  },
+  "input": {
+    "prefix": "input",
+    "body": [
+      "<input type='${1:text/submit/hidden/button}' name='${2:some_name}' value='$3'${4: id='${5:$2}'}`!p x(snip)`>"
+    ],
+    "description": "<input>"
+  },
+  "link": {
+    "prefix": "link",
+    "body": [
+      "<link rel='${1:stylesheet}' href='${2:/css/master.css}' type='text/css' media='${3:screen}'>"
+    ],
+    "description": "<link>"
+  },
+  "meta": {
+    "prefix": "meta",
+    "body": [
+      "<meta name='${1:name}' content='${2:content}'`!p x(snip)`>"
+    ],
+    "description": "<meta>"
+  },
+  "opt": {
+    "prefix": "opt",
+    "body": [
+      "<option${1: value='${3:option}'}>${3:$2}</option>"
+    ],
+    "description": "Option"
+  },
+  "poly9": {
+    "prefix": "poly9",
+    "body": [
+      "<!-- The <$1> custom element declaration.",
+      "",
+      "  Attributes:",
+      "    Events:",
+      "    Methods:",
+      "-->",
+      "",
+      "<dom-module id='$1'>",
+      "  <style>",
+      "  </style>",
+      "  <template>",
+      "    $2",
+      "  </template>",
+      "</dom-module>",
+      "",
+      "<script>",
+      "  Polymer({",
+      "    is: '$1',",
+      "",
+      "    ready: function() {",
+      "    },",
+      "",
+      "  });",
+      "</script>"
+    ],
+    "description": "Polymer"
+  },
+  "pretty": {
+    "prefix": "pretty",
+    "body": [
+      "<pre class=prettyprint><code>$1</code></pre>",
+      "$0"
+    ],
+    "description": "prettyprint"
+  },
+  "prop": {
+    "prefix": "prop",
+    "body": [
+      "properties: {",
+      "  $1: {",
+      "    type: String,",
+      "    value: '$2',",
+      "        reflectToAttribute: false,",
+      "        observer: '$1Change',",
+      "  },",
+      "},"
+    ],
+    "description": "Polymer"
+  },
+  "repeat": {
+    "prefix": "repeat",
+    "body": [
+      "<template is='dom-repeat' items='{{$1}}'>",
+      "  $0",
+      "</template>"
+    ],
+    "description": "Polymer"
+  },
+  "script": {
+    "prefix": "script",
+    "body": [
+      "<script type='text/javascript' charset='utf-8'>",
+      "    $0",
+      "</script>"
+    ],
+    "description": "script"
+  },
+  "scriptsrc": {
+    "prefix": "scriptsrc",
+    "body": [
+      "<script src='$1' type='text/javascript' charset='${3:utf-8}'></script>"
+    ],
+    "description": "script"
+  },
+  "select": {
+    "prefix": "select",
+    "body": [
+      "<select name='${1:some_name}' id='${2:$1}'${3:${4: multiple}${5: onchange='${6:}'}${7: size='${8:1}'}}>",
+      "    <option${9: value='${10:option1}'}>${11:$10}</option>",
+      "    <option${12: value='${13:option2}'}>${14:$13}</option>${15:}",
+      "    $0",
+      "</select>"
+    ],
+    "description": "Select"
+  },
+  "table": {
+    "prefix": "table",
+    "body": [
+      "<table border='${1:0}'${2: cellspacing='${3:5}' cellpadding='${4:5}'}>",
+      "    <tr><th>${5:Header}</th></tr>",
+      "    <tr><td>${0:Data}</td></tr>",
+      "</table>"
+    ],
+    "description": "table"
+  },
+  "textarea": {
+    "prefix": "textarea",
+    "body": [
+      "<textarea name='${1:Name}' rows='${2:8}' cols='${3:40}'>$0</textarea>"
+    ],
+    "description": "<textarea>"
+  },
+  "vec": {
+    "prefix": "vec",
+    "body": [
+      "<b>$1<sub>$2</sub></b>$0"
+    ],
+    "description": "vector"
+  }
+}

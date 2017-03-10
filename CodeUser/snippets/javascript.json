@@ -1,0 +1,72 @@
+{
+/*
+	// Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+  "cust": {
+    "prefix": "cust",
+    "body": [
+      "\"var detail = {$1};\",",
+      "this.dispatchEvent(new CustomEvent('change', {detail: detail}));",
+      "$0"
+    ],
+    "description": "CustomEvent"
+  },
+  "ae": {
+    "prefix": "ae",
+    "body": [
+      "$$$('#$1').addEventListener('$2', function(e) {",
+      "    $0",
+      "});"
+    ],
+    "description": "ele.addEventListener"
+  },
+  "list": {
+    "prefix": "list",
+    "body": [
+      "listeners: {",
+      "    '$1.tap': '_$1Tap',",
+      "    $0",
+      "},"
+    ],
+    "description": "Polymer"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {",
+      "    $0",
+      "}"
+    ],
+    "description": "for"
+  },
+  "ford": {
+    "prefix": "ford",
+    "body": [
+      "for (var ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {",
+      "    $0",
+      "}"
+    ],
+    "description": "for"
+  },
+  "clos": {
+    "prefix": "clos",
+    "body": [
+      "(function () {",
+      "    $0",
+      "})();"
+    ],
+    "description": "Immediately-Invoked"
+  }
+}
