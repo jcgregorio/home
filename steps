@@ -20,8 +20,7 @@ mkdir --parents ~/.vim/tmp/backup
 mkdir --parents ~/.vim/tmp/swap
 rm ~/.vimrc
 ln -s $HOME/jcgregorio/vim/vimrc ~/.vimrc
-rm ~/.bashrc
-ln -s $HOME/jcgregorio/bashrc ~/.bashrc
+echo "source $HOME/jcgregorio/bashrc" >> ~/.bashrc
 source ~/.bashrc
 
 # Install go
