@@ -264,7 +264,7 @@ __git_ps1_colorize_gitstring ()
 
 	z="$c_clear$z"
 	if [ "$w" = "*" ]; then
-		w="$bad_color$w"
+    w="$bad_color$w"
 	fi
 	if [ -n "$i" ]; then
 		i="$ok_color$i"
@@ -273,7 +273,7 @@ __git_ps1_colorize_gitstring ()
 		s="$flags_color$s"
 	fi
 	if [ -n "$u" ]; then
-		u="$bad_color$u"
+		u="$c_lblue$u"
 	fi
 	r="$c_clear$r"
 }
