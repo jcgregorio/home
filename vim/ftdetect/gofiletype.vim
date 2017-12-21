@@ -1,1 +1,0 @@
-/home/jcgregorio/go/misc/vim/ftdetect/gofiletype.vim

@@ -74,7 +74,7 @@ syntax on
 
 let g:go_fmt_command = "goimports"
 
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go set textwidth=0
 " }}}
 
