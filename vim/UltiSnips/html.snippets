@@ -451,4 +451,23 @@ snippet vec "vector"
 <b>$1<sub>$2</sub></b>$0
 endsnippet
 
+snippet grid "cssgrid"
+.$1 {
+	grid-area: $2;
+}
+
+.$3 {
+	grid-area: $4;
+}
+
+.container {
+  display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 50px 1fr;
+	grid-template-areas:
+		"$1 $1"
+		"$2 $2"
+}
+endsnippet
+
 # vim:ft=snippets:
