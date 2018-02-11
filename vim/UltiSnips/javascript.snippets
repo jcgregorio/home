@@ -1,0 +1,138 @@
+#############
+# JS        #
+#############
+
+snippet for "for (...) {...} (counting up)" b
+for (let ${1:i} = 0; $1 < $2; $1++) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ford "for (...) {...} (counting down, faster)" b
+for (let ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fun "function (fun)"
+function ${1:function_name}(${2:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+
+snippet clos "Immediately-Invoked Closure"
+(function () {
+	$0
+})();
+endsnippet
+
+snippet ae "ele.addEventListener"
+$$$('#$1').addEventListener('$2', function(e) {
+	$0
+});
+endsnippet
+
+snippet ele "$$$('#id')."
+$$$('#$1').$0
+endsnippet
+
+snippet van "VanillaJS element definition"
+import { upgradeProperty } from 'skia-elements/upgrade-property'
+
+window.customElements.define('$1', class extends HTMLElement {
+	static get observedAttributes() {
+		return ['$2'];
+	}
+
+	connectedCallback() {
+		upgradeProperty(this, '$2');
+		this.addEventListener('$3', this);
+	}
+
+	disconnectedCallback() {
+		this.removeEventListener('$3', this);
+	}
+
+	get $2() { return this.hasAttribute('$2'); }
+	set $2(val) {
+		if (val) {
+			this.setAttribute('$2', '');
+		} else {
+			this.removeAttribute('$2');
+		}
+	}
+
+	handleEvent(e) {
+		switch (e.type) {
+			case '$3':
+				break;
+			default:
+		}
+	}
+
+	attributeChangedCallback(name, oldValue, newValue) {
+		let isTrue = !!newValue;
+		switch (name) {
+			case '$2':
+				break;
+		}
+	}
+});
+endsnippet
+
+snippet vanlit "VanillaJS+lit-extended element definition"
+import { upgradeProperty } from 'skia-elements/upgrade-property'
+import { html, render } from 'lit-html/lib/lit-extended'
+
+const template = (ele) => html``;
+
+// The <$1> custom element declaration.
+//
+//  Attributes:
+//    None
+//
+//  Properties:
+//    None
+//
+//  Events:
+//    None
+//
+//  Methods:
+//    None
+//
+window.customElements.define('$1', class extends HTMLElement {
+	constructor() {
+		super();
+	}
+
+	connectedCallback() {
+		upgradeProperty(this, '$2');
+		this._render();
+	}
+
+	disconnectedCallback() {
+	}
+
+	_render() {
+		render(template(this), this);
+	}
+
+});
+endsnippet
+
+snippet attr "VanillaJS attribute"
+	static get observedAttributes() {
+		return ['$2'];
+	}
+
+	get $2() { return this.getAttribute('$2'); }
+	set $2(val) { this.setAttribute('$2', val); }
+
+	attributeChangedCallback(name, oldValue, newValue) {
+		switch (name) {
+			case '$2':
+				break;
+		}
+	}
+endsnippet

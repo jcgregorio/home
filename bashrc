@@ -32,7 +32,7 @@ export GOROOT=$HOME/go
 export GOPATH=$HOME/projects/golib
 export CDPATH=$GOPATH/src/go.skia.org/infra:$GOPATH/src/github.com/
 export EDITOR=vim
-export PATH=$HOME/projects/depot_tools:$GOROOT/bin:$HOME/bin:$GOPATH/bin:$HOME/projects/swarming/client:$HOME/projects/clang/bin:$PATH
+export PATH=$HOME/projects/depot_tools:$GOROOT/bin:$HOME/node/bin:$HOME/bin:$GOPATH/bin:$HOME/projects/swarming/client:$HOME/projects/clang/bin:$PATH
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
