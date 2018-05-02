@@ -5,9 +5,9 @@
 #
 #  git clone https://github.com/jcgregorio/home.git jcgregorio
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install git ncurses-term screen ncurses-dev \
+sudo apt update
+sudo apt upgrade
+sudo apt install git curl ncurses-term screen ncurses-dev \
   mercurial python python-dev build-essential cmake \
   bash-completion
 
