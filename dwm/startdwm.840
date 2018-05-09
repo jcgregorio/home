@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+while true
+do
+  xsetroot -name "`hostname`   `date \"+%I:%M   %d %b %Y\"`  `acpi | sed 's#^[^,]*, ##' | sed 's#,.*##'`              "
+  sleep 20s
+done &
+
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-a11y-keyboard &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-background &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-clipboard &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-color &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-cursor &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-datetime-mechanism &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-housekeeping &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-media-keys &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-orientation &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-screensaver-proxy &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-sound &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xrandr &
+#/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings &
+
+trayer --expand true --widthtype request --edge bottom --align right &
+
+sleep 5 && feh --bg-scale /usr/share/backgrounds/Gwallpaper-Black-Goobuntu-default.png &
+sleep 5 && xrandr --output DP-1 --auto --output DVI-I-1 --auto --right-of DP-1 &
+
+export PATH=$PATH:$PATH/bin
+
+dmenu_path &
+
+# Log stderror to a file 
+dwm 2> ~/.dwm.log
