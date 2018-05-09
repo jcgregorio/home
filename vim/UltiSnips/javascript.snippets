@@ -38,43 +38,54 @@ $$$('#$1').$0
 endsnippet
 
 snippet van "VanillaJS element definition"
+/**
+ * @module $1/$2
+ * @description <h2><code>$2</code></h2>
+ *
+ * @evt
+ *
+ * @attr {boolean} $3 - 
+ *
+ * @example
+ */
 import { upgradeProperty } from 'skia-elements/upgrade-property'
 
-window.customElements.define('$1', class extends HTMLElement {
+window.customElements.define('$2', class extends HTMLElement {
 	static get observedAttributes() {
-		return ['$2'];
+		return ['$3'];
 	}
 
 	connectedCallback() {
-		upgradeProperty(this, '$2');
-		this.addEventListener('$3', this);
+		upgradeProperty(this, '$3');
+		this.addEventListener('$4', this);
 	}
 
 	disconnectedCallback() {
-		this.removeEventListener('$3', this);
+		this.removeEventListener('$4', this);
 	}
 
-	get $2() { return this.hasAttribute('$2'); }
-	set $2(val) {
+  /** @prop {boolean} $3 Mirrors the $3 attribute. */
+	get $3() { return this.hasAttribute('$3'); }
+	set $3(val) {
 		if (val) {
-			this.setAttribute('$2', '');
+			this.setAttribute('$3', '');
 		} else {
-			this.removeAttribute('$2');
+			this.removeAttribute('$3');
 		}
 	}
 
 	handleEvent(e) {
 		switch (e.type) {
-			case '$3':
+			case '$4':
 				break;
 			default:
 		}
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {
-		let isTrue = !!newValue;
+		let isTrue = newValue !== null;
 		switch (name) {
-			case '$2':
+			case '$3':
 				break;
 		}
 	}
@@ -82,32 +93,26 @@ window.customElements.define('$1', class extends HTMLElement {
 endsnippet
 
 snippet vanlit "VanillaJS+lit-extended element definition"
-import { upgradeProperty } from 'skia-elements/upgrade-property'
+/**
+ * @module $1/$2
+ * @description <h2><code>$2</code></h2>
+ *
+ * @evt
+ *
+ * @attr
+ *
+ * @example
+ */
 import { html, render } from 'lit-html/lib/lit-extended'
 
-const template = (ele) => html``;
+const template = (ele) => html\`\`;
 
-// The <$1> custom element declaration.
-//
-//  Attributes:
-//    None
-//
-//  Properties:
-//    None
-//
-//  Events:
-//    None
-//
-//  Methods:
-//    None
-//
-window.customElements.define('$1', class extends HTMLElement {
+window.customElements.define('$2', class extends HTMLElement {
 	constructor() {
 		super();
 	}
 
 	connectedCallback() {
-		upgradeProperty(this, '$2');
 		this._render();
 	}
 
@@ -121,11 +126,12 @@ window.customElements.define('$1', class extends HTMLElement {
 });
 endsnippet
 
-snippet attr "VanillaJS attribute"
+snippet vanattr "VanillaJS attribute"
 	static get observedAttributes() {
 		return ['$2'];
 	}
 
+  /** @prop $2 {string} $3 */
 	get $2() { return this.getAttribute('$2'); }
 	set $2(val) { this.setAttribute('$2', val); }
 
@@ -135,4 +141,17 @@ snippet attr "VanillaJS attribute"
 				break;
 		}
 	}
+endsnippet
+
+snippet vandoc "VanillaJS custome element docs."
+/**
+ * @module $1/$2
+ * @description <h2><code>$2</code></h2>
+ *
+ * @evt
+ *
+ * @attr
+ *
+ * @example
+ */
 endsnippet
