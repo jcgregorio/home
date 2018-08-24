@@ -143,6 +143,12 @@ snippet vanattr "VanillaJS attribute"
 	}
 endsnippet
 
+snippet vanprop "VanillaJS property"
+	/** @prop $2 {string} $3 */
+	get $2() { return this._$2 }
+	set $2(val) { this._$2 = val; }
+endsnippet
+
 snippet vandoc "VanillaJS custome element docs."
 /**
  * @module $1/$2
@@ -154,4 +160,8 @@ snippet vandoc "VanillaJS custome element docs."
  *
  * @example
  */
+endsnippet
+
+snippet cust "CustomEvent"
+	this.dispatchEvent(new CustomEvent('$1', { detail: detail, bubbles: true }));
 endsnippet

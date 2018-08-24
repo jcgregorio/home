@@ -51,9 +51,12 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 git clone https://github.com/othree/html5.vim
 git clone git://github.com/tpope/vim-fugitive.git
 git clone https://github.com/GutenYe/json5.vim
+git clone https://github.com/pangloss/vim-javascript.git
+git clone https://github.com/jonsmithers/vim-html-template-literals.git
+
 cd YouCompleteMe
 git submodule update --init --recursive
-./install.sh
+./install..py --gocode-completer
 
 go get golang.org/x/tools/cmd/goimports
 
