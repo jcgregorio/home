@@ -49,7 +49,22 @@ PINK=$'\033[38;5;213m'
 GREEN=$'\033[38;5;2m'
 ORANGE=$'\033[38;5;214m'
 BLUE=$'\033[38;5;68m'
-export PROMPT_COMMAND='history -a; history -c; history -r; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
+
+alias skia-public='gcloud container clusters get-credentials skia-public --zone us-central1-a --project skia-public'
+alias skia-corp='gcloud container clusters get-credentials skia-corp --zone us-central1-a --project google.com:skia-corp'
+__kube_ps1()
+{
+    # Get current context
+    CONTEXT=$(kubectl config current-context)
+    # Strip off the prefix.
+    CONTEXT=${CONTEXT##*_}
+
+    if [ -n "$CONTEXT" ]; then
+        printf "(${CONTEXT}) "
+    fi
+}
+
+export PROMPT_COMMAND='history -a; history -c; history -r; __kube_ps1; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
 #export PS1='${BLUE}\u${ORANGE}@\h${PINK}$(__git_ps1 " (%s)")${GREEN} \W${D} \$ '
 
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1280x850,2560x1700
