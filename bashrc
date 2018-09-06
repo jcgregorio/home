@@ -50,8 +50,8 @@ GREEN=$'\033[38;5;2m'
 ORANGE=$'\033[38;5;214m'
 BLUE=$'\033[38;5;68m'
 
-alias skia-public='gcloud container clusters get-credentials skia-public --zone us-central1-a --project skia-public'
-alias skia-corp='gcloud container clusters get-credentials skia-corp --zone us-central1-a --project google.com:skia-corp'
+alias skia-public='gcloud container clusters get-credentials skia-public --zone us-central1-a --project skia-public; gcloud config set project skia-public'
+alias skia-corp='gcloud container clusters get-credentials skia-corp --zone us-central1-a --project google.com:skia-corp; gcloud config set project google.com:skia-corp'
 __kube_ps1()
 {
     # Get current context
@@ -60,7 +60,7 @@ __kube_ps1()
     CONTEXT=${CONTEXT##*_}
 
     if [ -n "$CONTEXT" ]; then
-        printf "(${CONTEXT}) "
+        printf "${GREEN}[${CONTEXT}] "
     fi
 }
 
