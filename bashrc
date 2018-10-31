@@ -54,13 +54,15 @@ alias skia-public='gcloud container clusters get-credentials skia-public --zone 
 alias skia-corp='gcloud container clusters get-credentials skia-corp --zone us-central1-a --project google.com:skia-corp; gcloud config set project google.com:skia-corp'
 __kube_ps1()
 {
-    # Get current context
-    CONTEXT=$(kubectl config current-context)
-    # Strip off the prefix.
-    CONTEXT=${CONTEXT##*_}
+    if hash kubectl 2>/dev/null; then
+      # Get current context
+      CONTEXT=$(kubectl config current-context)
+      # Strip off the prefix.
+      CONTEXT=${CONTEXT##*_}
 
-    if [ -n "$CONTEXT" ]; then
-        printf "${GREEN}[${CONTEXT}] "
+      if [ -n "$CONTEXT" ]; then
+          printf "${GREEN}[${CONTEXT}] "
+      fi
     fi
 }
 
