@@ -104,3 +104,10 @@ endsnippet
 snippet datastore"datastore field"
 \`datastore:"${1:displayName},noindex"\`
 endsnippet
+
+snippet test
+	func Test${1:name}(t *testing.T) {
+		testutils.SmallTest(t)
+		${0:${VISUAL}}
+	}
+endsnippet

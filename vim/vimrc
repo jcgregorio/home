@@ -37,11 +37,13 @@ execute pathogen#infect()
 set wildmode=longest,list
 
 " Set the font.
-set guifont=DejaVu\ Sans\ Mono\ 7
+set guifont=DejaVu\ Sans\ Mono\ 9
 
 " Remove bling.
 set guioptions-=T
 set guioptions-=m
+set guioptions-=r
+set guioptions-=L
 
 " Guard against weirdness if your shell starts launcing as an interactive.
 set shell=/bin/bash\ -l
@@ -191,3 +193,4 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 :set statusline=%F%m%r%h%w\ [%Y]\ [len=%L]\ [ch=\%03.3b\ 0x\%02.2B]\ pos=%04l,%04v\ [%p%%]
 :set laststatus=2
+
