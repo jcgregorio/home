@@ -4,6 +4,8 @@ Wants=local-fs.target
 After=local-fs.target
 
 [Service]
+WorkingDirectory=/home/jcgregorio
+Restart=always
 ExecStart=/home/jcgregorio/bin/upspinfs /home/jcgregorio/up
 
 [Install]
