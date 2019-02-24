@@ -1,0 +1,10 @@
+[Unit]
+Description=Systemd autostart the upspin fuse fs.
+Wants=local-fs.target
+After=local-fs.target
+
+[Service]
+ExecStart=$HOME/bin/upspin $HOME/up
+
+[Install]
+WantedBy=default.target
