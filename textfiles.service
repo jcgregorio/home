@@ -1,0 +1,12 @@
+[Unit]
+Description=Systemd autostart the gcs fuse fs.
+Wants=local-fs.target
+After=local-fs.target
+
+[Service]
+WorkingDirectory=/home/jcgregorio
+Restart=always
+ExecStart=/home/jcgregorio/bin/gcsfuse --foreground --key-file=/home/jcgregorio/.config/bitworking-textfiles/key.json bitworking-textfiles /home/jcgregorio/textfiles
+
+[Install]
+WantedBy=default.target
