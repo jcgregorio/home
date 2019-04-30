@@ -46,7 +46,7 @@ set guioptions-=r
 set guioptions-=L
 
 " Guard against weirdness if your shell starts launcing as an interactive.
-set shell=/bin/bash\ -l
+"set shell=/bin/bash\ -l
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
@@ -131,33 +131,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-
-" Execute the given command in a shell and display the results in a new
-" window. <M-r> in the new window will re-run the command that created
-" the window. Each unique command gets its own window.
-function! s:ExecuteInShell(command)
-  let command = join(map(split(a:command), 'expand(v:val)'))
-  let winnr = bufwinnr('^' . command . '$')
-  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
-  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap
-  echo 'Execute ' . command . '...'
-  silent! execute 'silent %!'. command
-  silent! redraw
-  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
-  silent! execute 'nnoremap <silent> <buffer> <C-r> :call <SID>ExecuteInShell(''' . command . ''')<CR>'
-  silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
-  echo 'Shell command ' . command . ' executed.'
-endfunction
-command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-
-function! ExecuteCurrentLineInShell()
-  let command = getline(line('.'))
-  echo command
-  execute ':call <SID>ExecuteInShell('''.command.''')'
-endfunction
-
-nnoremap <C-e> :call ExecuteCurrentLineInShell()<CR>
 
 nnoremap ; :
 set noeb vb t_vb=
