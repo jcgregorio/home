@@ -10,10 +10,6 @@
 < static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 ---
 > static const char *tags[] = { "1", "2", "3", "q", "w", "e", "a", "s", "d" };
-38c38
-< #define MODKEY Mod1Mask
----
-> #define MODKEY Mod4Mask
 49,50c49,50
 < static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 < static const char *termcmd[]  = { "uxterm", NULL };
