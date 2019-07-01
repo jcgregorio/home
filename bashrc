@@ -30,7 +30,6 @@ fi
 
 export GOROOT=$HOME/go
 export GOPATH=$HOME/projects/golib
-export CDPATH=$GOPATH/src/go.skia.org/infra:$GOPATH/src/github.com/
 export EDITOR=vim
 export PATH=$HOME/projects/depot_tools:$GOROOT/bin:$HOME/node/bin:$HOME/bin:$GOPATH/bin:$HOME/projects/swarming/client:$HOME/projects/clang/bin:$PATH
 

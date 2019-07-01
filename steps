@@ -22,6 +22,7 @@ rm ~/.vimrc
 ln -s $HOME/jcgregorio/vim/vimrc ~/.vimrc
 echo "source $HOME/jcgregorio/bashrc" >> ~/.bashrc
 source ~/.bashrc
+echo "source-file $HOME/jcgregorio/tmux.conf" >> ~/.tmux.conf
 
 # Install go
 cd ~
