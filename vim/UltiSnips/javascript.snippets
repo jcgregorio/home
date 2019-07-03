@@ -120,7 +120,7 @@ window.customElements.define('$2', class extends HTMLElement {
 	}
 
 	_render() {
-		render(template(this), this);
+		render(template(this), this, {eventContext: this});
 	}
 
 });
