@@ -32,6 +32,7 @@ set textwidth=78
 set autoindent
 
 set rtp+=$HOME/jcgregorio/vim
+set rtp+=$HOME/share/vim/vim81/
 set t_Co=256
 colorscheme desert256
 
