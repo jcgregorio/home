@@ -12,6 +12,10 @@
 " we always use gnome-terminal, so all the fancy detection stuff is a waste.
 " After running sudo apt-get install ncurses-term.
 "
+"
+set rtp-=/usr/local/share/vim/vimfiles
+set rtp-=/usr/local/share/vim/vim80
+set rtp-=/usr/local/share/vim/vimfiles/after
 set incsearch
 syntax on
 autocmd BufEnter * :syntax sync fromstart
@@ -70,7 +74,7 @@ if exists("g:did_load_filetypes")
   filetype off
   filetype plugin indent off
 endif
-set runtimepath+=$HOME/jcgregorio/vim/go
+set rtp+=$HOME/jcgregorio/vim/go
 filetype plugin indent on
 syntax on
 
