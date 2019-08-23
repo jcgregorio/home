@@ -1,0 +1,32 @@
+{
+  "go.autocompleteUnimportedPackages": true,
+  "go.delveConfig": {
+    "useApiV1": false,
+    "dlvLoadConfig": {
+      "followPointers": true,
+      "maxVariableRecurse": 3,
+      "maxStringLen": 400,
+      "maxArrayValues": 100,
+      "maxStructFields": -1
+    }
+  },
+  "vim.hlsearch": true,
+  "go.lintOnSave": "off",
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "autoComplete": true,
+    "rename": true,
+    "goToDefinition": true,
+    "hover": true,
+    "signatureHelp": true,
+    "goToTypeDefinition": true,
+    "goToImplementation": true,
+    "documentSymbols": true,
+    "workspaceSymbols": true,
+    "findReferences": true,
+    "diagnostics": true,
+    "documentLink": true,
+  },
+  "git.enableSmartCommit": true
+}
