@@ -13,6 +13,7 @@
   "vim.hlsearch": true,
   "go.lintOnSave": "package",
   "go.useLanguageServer": true,
+  "go.formatFlags": ["-s"],
   "go.languageServerExperimentalFeatures": {
     "format": true,
     "autoComplete": true,
@@ -28,5 +29,10 @@
     "diagnostics": true,
     "documentLink": true,
   },
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "go.formatTool": "goimports",
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 80,
+  "editor.wrappingIndent": "same",
+  "rewrap.autoWrap.enabled": true,
 }
