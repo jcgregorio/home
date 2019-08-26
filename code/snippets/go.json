@@ -146,7 +146,7 @@
     "prefix": "test",
     "body": [
       "\tfunc Test${1:name}(t *testing.T) {",
-      "\t\ttestutils.SmallTest(t)",
+      "\t\tunittest.SmallTest(t)",
       "\t\t$0",
       "\t}"
     ]
