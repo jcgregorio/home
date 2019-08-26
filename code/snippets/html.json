@@ -1,0 +1,646 @@
+{
+  "cust": {
+    "prefix": "cust",
+    "body": [
+      "var detail = {$1};",
+      "this.dispatchEvent(new CustomEvent('change', {detail: detail}));",
+      "$0"
+    ],
+    "description": "CustomEvent"
+  },
+  "pretty": {
+    "prefix": "pretty",
+    "body": [
+      "<pre class=prettyprint><code>$1</code></pre>",
+      "$0"
+    ],
+    "description": "prettyprint"
+  },
+  "pub": {
+    "prefix": "pub",
+    "body": [
+      "publish: {",
+      "  $1: {",
+      "    value: $2,",
+      "    reflect: true,",
+      "  },",
+      "},"
+    ],
+    "description": "polymer 0.5 publish"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "for (...) {...} (counting up)"
+  },
+  "ford": {
+    "prefix": "ford",
+    "body": [
+      "for (var ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "for (...) {...} (counting down, faster)"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": [
+      "function ${1:function_name}(${2:argument}) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "function (fun)"
+  },
+  "clos": {
+    "prefix": "clos",
+    "body": [
+      "(function () {",
+      "\t$0",
+      "})();"
+    ],
+    "description": "Immediately-Invoked Closure"
+  },
+  "ae": {
+    "prefix": "ae",
+    "body": [
+      "$$$('#$1').addEventListener('$2', function(e) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "ele.addEventListener"
+  },
+  "ele": {
+    "prefix": "ele",
+    "body": [
+      "$$$('#$1').$0"
+    ],
+    "description": "$$$('#id')."
+  },
+  "down": {
+    "prefix": "down",
+    "body": [
+      "&#x2193;"
+    ],
+    "description": "Down (down)"
+  },
+  "enter": {
+    "prefix": "enter",
+    "body": [
+      "&#x2305;"
+    ],
+    "description": "Enter (enter)"
+  },
+  "escape": {
+    "prefix": "escape",
+    "body": [
+      "&#x238B;"
+    ],
+    "description": "Escape (escape)"
+  },
+  "shift": {
+    "prefix": "shift",
+    "body": [
+      "&#x21E7;"
+    ],
+    "description": "Shift (shift)"
+  },
+  "tab": {
+    "prefix": "tab",
+    "body": [
+      "&#x21E5;"
+    ],
+    "description": "Tab (tab)"
+  },
+  "up": {
+    "prefix": "up",
+    "body": [
+      "&#x2191;"
+    ],
+    "description": "Up (up)"
+  },
+  "return": {
+    "prefix": "return",
+    "body": [
+      "&#x21A9;"
+    ],
+    "description": "Return (return)"
+  },
+  "right": {
+    "prefix": "right",
+    "body": [
+      "&#x2192;"
+    ],
+    "description": "Right (right)"
+  },
+  "left": {
+    "prefix": "left",
+    "body": [
+      "&#x2190;"
+    ],
+    "description": "Left (left)"
+  },
+  "option": {
+    "prefix": "option",
+    "body": [
+      "&#x2325;"
+    ],
+    "description": "Option (option)"
+  },
+  "co": {
+    "prefix": "co",
+    "body": [
+      "<!-- $1 -->$0"
+    ],
+    "description": "HTML Comment"
+  },
+  "input": {
+    "prefix": "input",
+    "body": [
+      "<input type=\"${1:text/submit/hidden/button}\" name=\"${2:some_name}\" value=\"$3\"${4: id=\"${5:$2}\"}`!p x(snip)`>"
+    ],
+    "description": "<input>"
+  },
+  "opt": {
+    "prefix": "opt",
+    "body": [
+      "<option${1: value=\"${2:option}\"}>${3:$2}</option>"
+    ],
+    "description": "Option"
+  },
+  "select": {
+    "prefix": "select",
+    "body": [
+      "<select name=\"${1:some_name}\" id=\"${2:$1}\"${3:${4: multiple}${5: onchange=\"${6:}\"}${7: size=\"${8:1}\"}}>",
+      "\t<option${9: value=\"${10:option1}\"}>${11:$10}</option>",
+      "\t<option${12: value=\"${13:option2}\"}>${14:$13}</option>${15:}",
+      "\t$0",
+      "</select>"
+    ],
+    "description": "Select Box"
+  },
+  "canvas": {
+    "prefix": "canvas",
+    "body": [
+      "<canvas id=${1:ID} width=${2:500} height=${3:500}>$0"
+    ],
+    "description": "<canvas>"
+  },
+  "textarea": {
+    "prefix": "textarea",
+    "body": [
+      "<textarea name=\"${1:Name}\" rows=\"${2:8}\" cols=\"${3:40}\">$0</textarea>"
+    ],
+    "description": "<textarea>"
+  },
+  "mailto": {
+    "prefix": "mailto",
+    "body": [
+      "<a href=\"mailto:${1:joe@example.com}?subject=${2:feedback}\">${3:email me}</a>"
+    ],
+    "description": "<a mailto: >"
+  },
+  "base": {
+    "prefix": "base",
+    "body": [
+      "<base href=\"$1\"${2: target=\"$3\"}`!p x(snip)`>"
+    ],
+    "description": "<base>"
+  },
+  "body": {
+    "prefix": "body",
+    "body": [
+      "<body id=\"${1:`!p",
+      "snip.rv = snip.fn and 'Hallo' or 'Nothin'",
+      "`}\"${2: onload=\"$3\"}>",
+      "\t$0",
+      "</body>"
+    ],
+    "description": "<body>"
+  },
+  "div": {
+    "prefix": "div",
+    "body": [
+      "<div>",
+      "  $0",
+      "</div>"
+    ],
+    "description": "<div>"
+  },
+  "divi": {
+    "prefix": "divi",
+    "body": [
+      "<div id=${1:ID}>",
+      "</div>"
+    ],
+    "description": "<div id=>"
+  },
+  "form": {
+    "prefix": "form",
+    "body": [
+      "<form action=\"${1:`!p",
+      "snip.rv = (snip.basename or 'unnamed') + '_submit'",
+      "`}\" method=\"${2:get}\" accept-charset=\"utf-8\">",
+      "\t$0",
+      "",
+      "\t<p><input type=\"submit\" value=\"Continue →\"`!p x(snip)`></p>",
+      "</form>"
+    ],
+    "description": "<form>"
+  },
+  "h": {
+    "prefix": "h",
+    "body": [
+      "<h$1 id=\"${2/[\\w\\d]+|( )/(?1:_:\\L$0\\E)/g}${VISUAL/[\\w\\d]+|()/(?1:_:\\L$0\\E)/g}\">${2}${VISUAL}</h$1>"
+    ],
+    "description": "<h[1-5]>"
+  },
+  "head": {
+    "prefix": "head",
+    "body": [
+      "<head>",
+      "\t<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"`!p x(snip)`>",
+      "\t<title>${1:`!p snip.rv = snip.basename or \"Page Title\"`}</title>",
+      "\t$0",
+      "</head>"
+    ],
+    "description": "<head>"
+  },
+  "link": {
+    "prefix": "link",
+    "body": [
+      "<link rel=\"${1:stylesheet}\" href=\"${2:/css/master.css}\" type=\"text/css\" media=\"${3:screen}\">"
+    ],
+    "description": "<link>"
+  },
+  "meta": {
+    "prefix": "meta",
+    "body": [
+      "<meta name=\"${1:name}\" content=\"${2:content}\"`!p x(snip)`>"
+    ],
+    "description": "<meta>"
+  },
+  "scriptsrc": {
+    "prefix": "scriptsrc",
+    "body": [
+      "<script src=\"$1\" type=\"text/javascript\" charset=\"${3:utf-8}\"></script>"
+    ],
+    "description": "script src..."
+  },
+  "script": {
+    "prefix": "script",
+    "body": [
+      "<script type=\"text/javascript\" charset=\"utf-8\">",
+      "\t$0",
+      "</script>"
+    ],
+    "description": "script"
+  },
+  "css": {
+    "prefix": "css",
+    "body": [
+      "<style type=\"text/css\" media=\"screen\">",
+      "\t$0",
+      "</style>"
+    ],
+    "description": "style"
+  },
+  "table": {
+    "prefix": "table",
+    "body": [
+      "<table border=\"${1:0}\"${2: cellspacing=\"${3:5}\" cellpadding=\"${4:5}\"}>",
+      "\t<tr><th>${5:Header}</th></tr>",
+      "\t<tr><td>${0:Data}</td></tr>",
+      "</table>"
+    ],
+    "description": "table"
+  },
+  "img": {
+    "prefix": "img",
+    "body": [
+      "<img src=\"$0\"/>"
+    ],
+    "description": "Image"
+  },
+  "a": {
+    "prefix": "a",
+    "body": [
+      "<a href=\"$1\">${VISUAL}$0</a>"
+    ],
+    "description": "Link"
+  },
+  "p": {
+    "prefix": "p",
+    "body": [
+      "<p>${VISUAL}$0</p>"
+    ],
+    "description": "paragraph"
+  },
+  "b": {
+    "prefix": "b",
+    "body": [
+      "<b>${VISUAL}$0</b>"
+    ],
+    "description": "bold"
+  },
+  "em": {
+    "prefix": "em",
+    "body": [
+      "<em>${VISUAL}$0</em>"
+    ],
+    "description": "emphasis"
+  },
+  "code": {
+    "prefix": "code",
+    "body": [
+      "<code>${VISUAL}$0</code>"
+    ],
+    "description": "code"
+  },
+  "str": {
+    "prefix": "str",
+    "body": [
+      "<strong>${VISUAL}$0</strong>"
+    ],
+    "description": "strong"
+  },
+  "li": {
+    "prefix": "li",
+    "body": [
+      "<li>$0</li>"
+    ],
+    "description": "list item"
+  },
+  "ul": {
+    "prefix": "ul",
+    "body": [
+      "<ul>",
+      "$0",
+      "</ul>"
+    ],
+    "description": "unordered list"
+  },
+  "ol": {
+    "prefix": "ol",
+    "body": [
+      "<ol>",
+      "$0",
+      "</ol>"
+    ],
+    "description": "ordered list"
+  },
+  "dl": {
+    "prefix": "dl",
+    "body": [
+      "<dl>",
+      "  <dt>$1</dt>",
+      "  <dd>$2</dd>",
+      "</dl>"
+    ],
+    "description": "definition list"
+  },
+  "dt": {
+    "prefix": "dt",
+    "body": [
+      "<dt>$1</dt>",
+      "<dd>$2</dd>"
+    ],
+    "description": "ordered list"
+  },
+  "td": {
+    "prefix": "td",
+    "body": [
+      "<td>$0</td>"
+    ],
+    "description": "table cell"
+  },
+  "tr": {
+    "prefix": "tr",
+    "body": [
+      "<tr>$0</tr>"
+    ],
+    "description": "table row"
+  },
+  "fieldset": {
+    "prefix": "fieldset",
+    "body": [
+      "<fieldset id=\"${1/[\\w\\d]+|( )/(?1:_:\\L$0\\E)/g}\" ${2:class=\"${3:}\"}>",
+      "\t<legend>$1</legend>",
+      "\t",
+      "\t$0",
+      "</fieldset>"
+    ],
+    "description": "Fieldset"
+  },
+  "movie": {
+    "prefix": "movie",
+    "body": [
+      "<object width=\"$2\" height=\"$3\" classid=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" codebase=\"http://www.apple.com/qtactivex/qtplugin.cab\">",
+      "\t<param name=\"src\" value=\"$1\"`!p x(snip)`>",
+      "\t<param name=\"controller\" value=\"$4\"`!p x(snip)`>",
+      "\t<param name=\"autoplay\" value=\"$5\"`!p x(snip)`>",
+      "\t<embed src=\"${1:movie.mov}\"",
+      "\t\twidth=\"${2:320}\" height=\"${3:240}\"",
+      "\t\tcontroller=\"${4:true}\" autoplay=\"${5:true}\"",
+      "\t\tscale=\"tofit\" cache=\"true\"",
+      "\t\tpluginspage=\"http://www.apple.com/quicktime/download/\"",
+      "\t`!p x(snip)`>",
+      "</object>"
+    ],
+    "description": "Embed QT movie (movie)"
+  },
+  "html": {
+    "prefix": "html",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<head>",
+      "    <title>${1}</title>",
+      "    <meta charset=\"utf-8\" />",
+      "\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+      "\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "</head>",
+      "<body>",
+      "  ${2}",
+      "</body>",
+      "</html>"
+    ],
+    "description": "HTML Template"
+  },
+  "poly": {
+    "prefix": "poly",
+    "body": [
+      "<!-- The <$1> custom element declaration.",
+      "",
+      "  Attributes:",
+      "\tEvents:",
+      "\tMethods:",
+      "-->",
+      "<polymer-element name=\"$1\">",
+      "  <template>",
+      "\t  $2",
+      "  </template>",
+      "  <script>",
+      "    Polymer({",
+      "      ready: function() {",
+      "\t\t\t  $3",
+      "      }",
+      "    });",
+      "  </script>",
+      "</polymer-element>"
+    ],
+    "description": "Polymer element"
+  },
+  "poly9": {
+    "prefix": "poly9",
+    "body": [
+      "<!-- The <$1> custom element declaration.",
+      "",
+      "  Attributes:",
+      "\tEvents:",
+      "\tMethods:",
+      "-->",
+      "",
+      "<dom-module id=\"$1\">",
+      "  <style>",
+      "  </style>",
+      "  <template>",
+      "    $2",
+      "  </template>",
+      "</dom-module>",
+      "",
+      "<script>",
+      "  Polymer({",
+      "    is: \"$1\",",
+      "",
+      "    ready: function() {",
+      "    },",
+      "",
+      "  });",
+      "</script>"
+    ],
+    "description": "Polymer 0.9+ element"
+  },
+  "prop": {
+    "prefix": "prop",
+    "body": [
+      "properties: {",
+      "  $1: {",
+      "    type: String,",
+      "    value: \"$2\",",
+      "\t\treflectToAttribute: false,",
+      "\t\tobserver: \"$1Change\",",
+      "  },",
+      "},"
+    ],
+    "description": "Polymer 0.9+ properties"
+  },
+  "repeat": {
+    "prefix": "repeat",
+    "body": [
+      "<template is=\"dom-repeat\" items=\"{{$1}}\">",
+      "  $0",
+      "</template>"
+    ],
+    "description": "Polymer 0.9+ repeat template"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "<template is=\"dom-if\" if=\"{{$1}}\">",
+      "  $0",
+      "</template>"
+    ],
+    "description": "Polymer 0.9+ if template"
+  },
+  "list": {
+    "prefix": "list",
+    "body": [
+      "listeners: {",
+      "\t\"$1.tap\": \"_$1Tap\",",
+      "\t$0",
+      "},"
+    ],
+    "description": "Polymer 1.0 listeners"
+  },
+  "stamp": {
+    "prefix": "stamp",
+    "body": [
+      "<!-- The <$1> custom element declaration.",
+      "",
+      "  Attributes:",
+      "\tEvents:",
+      "\tMethods:",
+      "-->",
+      "",
+      "<template id=\"$1\">",
+      "  <host-content select=\"*\"></host-content>",
+      "</template>",
+      "",
+      "<script type=\"text/javascript\" charset=\"utf-8\">",
+      "  (function() {",
+      "    Stamp.newElement('$1', {",
+      "      createdCallback: function() {",
+      "\t\t\t  Stamp.elementExpand(this);",
+      "      },",
+      "    });",
+      "  })();",
+      "</script>",
+      ""
+    ],
+    "description": "Stamp element"
+  },
+  "<": {
+    "prefix": "<",
+    "body": [
+      "<$1></$1>"
+    ],
+    "description": "HTML element"
+  },
+  "G": {
+    "prefix": "G",
+    "body": [
+      "𝔾<sup>2</sup>$0"
+    ],
+    "description": "G2"
+  },
+  "R": {
+    "prefix": "R",
+    "body": [
+      "ℝ<sup>2</sup>"
+    ],
+    "description": "R2"
+  },
+  "vec": {
+    "prefix": "vec",
+    "body": [
+      "<b>$1<sub>$2</sub></b>$0"
+    ],
+    "description": "vector"
+  },
+  "grid": {
+    "prefix": "grid",
+    "body": [
+      ".$1 {",
+      "\tgrid-area: $2;",
+      "}",
+      "",
+      ".$3 {",
+      "\tgrid-area: $4;",
+      "}",
+      "",
+      ".container {",
+      "  display: grid;",
+      "\tgrid-template-columns: 2fr 1fr;",
+      "\tgrid-template-rows: 50px 1fr;",
+      "\tgrid-template-areas:",
+      "\t\t\"$1 $1\"",
+      "\t\t\"$2 $2\"",
+      "}"
+    ],
+    "description": "cssgrid"
+  }
+}

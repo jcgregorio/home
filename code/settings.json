@@ -11,7 +11,7 @@
     }
   },
   "vim.hlsearch": true,
-  "go.lintOnSave": "off",
+  "go.lintOnSave": "package",
   "go.useLanguageServer": true,
   "go.languageServerExperimentalFeatures": {
     "format": true,

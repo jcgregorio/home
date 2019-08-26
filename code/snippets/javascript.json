@@ -1,0 +1,249 @@
+{
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:i} = 0; $1 < $2; $1++) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "for (...) {...} (counting up)"
+  },
+  "ford": {
+    "prefix": "ford",
+    "body": [
+      "for (let ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "for (...) {...} (counting down, faster)"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": [
+      "function ${1:function_name}(${2:argument}) {",
+      "\t${VISUAL}$0",
+      "}"
+    ],
+    "description": "function (fun)"
+  },
+  "clos": {
+    "prefix": "clos",
+    "body": [
+      "(function () {",
+      "\t$0",
+      "})();"
+    ],
+    "description": "Immediately-Invoked Closure"
+  },
+  "ae": {
+    "prefix": "ae",
+    "body": [
+      "$$$('#$1').addEventListener('$2', function(e) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "ele.addEventListener"
+  },
+  "ele": {
+    "prefix": "ele",
+    "body": [
+      "$$$('#$1').$0"
+    ],
+    "description": "$$$('#id')."
+  },
+  "van": {
+    "prefix": "van",
+    "body": [
+      "/**",
+      " * @module $1/$2",
+      " * @description <h2><code>$2</code></h2>",
+      " *",
+      " * @evt",
+      " *",
+      " * @attr {boolean} $3 - ",
+      " *",
+      " * @example",
+      " */",
+      "import { upgradeProperty } from 'skia-elements/upgrade-property'",
+      "",
+      "window.customElements.define('$2', class extends HTMLElement {",
+      "\tstatic get observedAttributes() {",
+      "\t\treturn ['$3'];",
+      "\t}",
+      "",
+      "\tconnectedCallback() {",
+      "\t\tupgradeProperty(this, '$3');",
+      "\t\tthis.addEventListener('$4', this);",
+      "\t}",
+      "",
+      "\tdisconnectedCallback() {",
+      "\t\tthis.removeEventListener('$4', this);",
+      "\t}",
+      "",
+      "  /** @prop {boolean} $3 Mirrors the $3 attribute. */",
+      "\tget $3() { return this.hasAttribute('$3'); }",
+      "\tset $3(val) {",
+      "\t\tif (val) {",
+      "\t\t\tthis.setAttribute('$3', '');",
+      "\t\t} else {",
+      "\t\t\tthis.removeAttribute('$3');",
+      "\t\t}",
+      "\t}",
+      "",
+      "\thandleEvent(e) {",
+      "\t\tswitch (e.type) {",
+      "\t\t\tcase '$4':",
+      "\t\t\t\tbreak;",
+      "\t\t\tdefault:",
+      "\t\t}",
+      "\t}",
+      "",
+      "\tattributeChangedCallback(name, oldValue, newValue) {",
+      "\t\tlet isTrue = newValue !== null;",
+      "\t\tswitch (name) {",
+      "\t\t\tcase '$3':",
+      "\t\t\t\tbreak;",
+      "\t\t}",
+      "\t}",
+      "});"
+    ],
+    "description": "VanillaJS element definition"
+  },
+  "vanlit": {
+    "prefix": "vanlit",
+    "body": [
+      "/**",
+      " * @module $1/$2",
+      " * @description <h2><code>$2</code></h2>",
+      " *",
+      " * @evt",
+      " *",
+      " * @attr",
+      " *",
+      " * @example",
+      " */",
+      "import { html, render } from 'lit-html'",
+      "",
+      "const template = (ele) => html\\`\\`;",
+      "",
+      "window.customElements.define('$2', class extends HTMLElement {",
+      "\tconstructor() {",
+      "\t\tsuper();",
+      "\t}",
+      "",
+      "\tconnectedCallback() {",
+      "\t\tthis._render();",
+      "\t}",
+      "",
+      "\tdisconnectedCallback() {",
+      "\t}",
+      "",
+      "\t_render() {",
+      "\t\trender(template(this), this, {eventContext: this});",
+      "\t}",
+      "",
+      "});"
+    ],
+    "description": "VanillaJS+lit-extended element definition"
+  },
+  "vanattr": {
+    "prefix": "vanattr",
+    "body": [
+      "\tstatic get observedAttributes() {",
+      "\t\treturn ['$2'];",
+      "\t}",
+      "",
+      "  /** @prop $2 {string} $3 */",
+      "\tget $2() { return this.getAttribute('$2'); }",
+      "\tset $2(val) { this.setAttribute('$2', val); }",
+      "",
+      "\tattributeChangedCallback(name, oldValue, newValue) {",
+      "\t\tswitch (name) {",
+      "\t\t\tcase '$2':",
+      "\t\t\t\tbreak;",
+      "\t\t}",
+      "\t}"
+    ],
+    "description": "VanillaJS attribute"
+  },
+  "vanprop": {
+    "prefix": "vanprop",
+    "body": [
+      "\t/** @prop $2 {string} $3 */",
+      "\tget $2() { return this._$2 }",
+      "\tset $2(val) { this._$2 = val; }"
+    ],
+    "description": "VanillaJS property"
+  },
+  "vandoc": {
+    "prefix": "vandoc",
+    "body": [
+      "/**",
+      " * @module $1/$2",
+      " * @description <h2><code>$2</code></h2>",
+      " *",
+      " * @evt",
+      " *",
+      " * @attr",
+      " *",
+      " * @example",
+      " */"
+    ],
+    "description": "VanillaJS custome element docs."
+  },
+  "cust": {
+    "prefix": "cust",
+    "body": [
+      "\tthis.dispatchEvent(new CustomEvent('$1', { detail: detail, bubbles: true }));"
+    ],
+    "description": "CustomEvent"
+  },
+  "vanele": {
+    "prefix": "vanele",
+    "body": [
+      "/**",
+      " * @module $1/$2",
+      " * @description <h2><code>$2</code></h2>",
+      " *",
+      " * @evt",
+      " *",
+      " * @attr",
+      " *",
+      " * @example",
+      " */",
+      "import { html, render } from 'lit-html'",
+      "import { ElementSk } from '../../../infra-sk/modules/ElementSk'",
+      "",
+      "const template = (ele) => html\\`\\`;",
+      "",
+      "window.customElements.define('$2', class extends ElementSk {",
+      "\tconstructor() {",
+      "\t\tsuper(template);",
+      "\t}",
+      "",
+      "\tconnectedCallback() {",
+      "\t\tsuper.connectedCallback();",
+      "\t\tthis._render();",
+      "\t}",
+      "",
+      "\tdisconnectedCallback() {",
+      "\t}",
+      "",
+      "});"
+    ],
+    "description": "VanillaJS+ElementSk element definition"
+  },
+  "fetch": {
+    "prefix": "fetch",
+    "body": [
+      "fetch('$1', {",
+      "\tmethod: 'POST',",
+      "\tbody: JSON.stringify($2),",
+      "\theaders:{",
+      "\t\t'Content-Type': 'application/json'",
+      "\t}",
+      "}).then(jsonOrThrow)"
+    ],
+    "description": "fetch(...)"
+  }
+}
