@@ -10,6 +10,18 @@
     ],
     "description": "sort"
   },
+  "json": {
+    "prefix": "json",
+    "body": [
+      "`json:\"$1\"`"
+    ]
+  },
+  "yaml": {
+    "prefix": "yaml",
+    "body": [
+      "`yaml:\"$1\"`"
+    ]
+  },
   "main": {
     "prefix": "main",
     "body": [

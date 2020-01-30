@@ -1,5 +1,5 @@
 {
-  "go.autocompleteUnimportedPackages": true,
+  "editor.find.autoFindInSelection": "always",
   "go.delveConfig": {
     "useApiV1": false,
     "dlvLoadConfig": {
@@ -11,13 +11,12 @@
     }
   },
   "vim.hlsearch": true,
-  "go.lintOnSave": "package",
-  "go.useLanguageServer": true,
-  "go.formatFlags": ["-s"],
+  "go.lintOnSave": "file",
+  "go.useLanguageServer": false,
   "go.languageServerExperimentalFeatures": {
     "format": true,
     "autoComplete": true,
-    "rename": true,
+    "rename": false,
     "goToDefinition": true,
     "hover": true,
     "signatureHelp": true,
@@ -25,14 +24,25 @@
     "goToImplementation": true,
     "documentSymbols": true,
     "workspaceSymbols": true,
-    "findReferences": true,
+    "findReferences": false,
     "diagnostics": true,
-    "documentLink": true,
+    "documentLink": true
   },
   "git.enableSmartCommit": true,
   "go.formatTool": "goimports",
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 80,
   "editor.wrappingIndent": "same",
+  "editor.formatOnSave": true,
   "rewrap.autoWrap.enabled": true,
+  "go.autocompleteUnimportedPackages": true,
+  "explorer.confirmDragAndDrop": false,
+  "scssFormatter.singleQuote": true,
+  "go.lintFlags": [
+    "-min_confidence=.9"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "eslint.alwaysShowStatus": true,
 }
