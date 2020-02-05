@@ -12,11 +12,11 @@
   },
   "vim.hlsearch": true,
   "go.lintOnSave": "file",
-  "go.useLanguageServer": false,
+  "go.useLanguageServer": true,
   "go.languageServerExperimentalFeatures": {
     "format": true,
     "autoComplete": true,
-    "rename": false,
+    "rename": true,
     "goToDefinition": true,
     "hover": true,
     "signatureHelp": true,
@@ -24,10 +24,13 @@
     "goToImplementation": true,
     "documentSymbols": true,
     "workspaceSymbols": true,
-    "findReferences": false,
+    "findReferences": true,
     "diagnostics": true,
     "documentLink": true
   },
+  "go.languageServerFlags": [
+    "-rpc.trace"
+  ],
   "git.enableSmartCommit": true,
   "go.formatTool": "goimports",
   "editor.wordWrap": "on",
