@@ -47,10 +47,5 @@
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-<<<<<<< Updated upstream
   "eslint.alwaysShowStatus": true,
-=======
-  "git.enableSmartCommit": true,
-  "window.zoomLevel": -1
->>>>>>> Stashed changes
 }
