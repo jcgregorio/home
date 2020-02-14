@@ -1,4 +1,6 @@
 {
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.find.autoFindInSelection": "always",
   "go.delveConfig": {
     "useApiV1": false,
@@ -10,7 +12,6 @@
       "maxStructFields": -1
     }
   },
-  "vim.hlsearch": true,
   "go.lintOnSave": "file",
   "go.useLanguageServer": true,
   "go.languageServerExperimentalFeatures": {
@@ -44,8 +45,9 @@
   "go.lintFlags": [
     "-min_confidence=.9"
   ],
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
   "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "go.formatFlags": [
+    "-s"
+  ],
 }
