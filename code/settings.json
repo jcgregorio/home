@@ -2,9 +2,7 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.find.autoFindInSelection": "always",
-  "go.testFlags": [
-    "-count=1"
-  ],
+  "go.testFlags": ["-count=1"],
   "go.delveConfig": {
     "useApiV1": false,
     "dlvLoadConfig": {
@@ -44,31 +42,18 @@
   "rewrap.autoWrap.enabled": false,
   "go.autocompleteUnimportedPackages": true,
   "explorer.confirmDragAndDrop": false,
-  "go.lintFlags": [
-    "-min_confidence=.9"
-  ],
+  "go.lintFlags": ["-min_confidence=.9"],
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
-<<<<<<< Updated upstream
-  "go.formatFlags": [
-    "-s"
-  ],
-=======
->>>>>>> Stashed changes
+  "go.formatFlags": ["-s"],
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "prettier.disableLanguages": [
-    "javascript"
-  ],
+  "prettier.disableLanguages": ["javascript"],
   "prettier.singleQuote": true,
-<<<<<<< Updated upstream
   "window.zoomLevel": 0,
   "terminal.integrated.allowChords": false,
   "[python]": {},
   "explorer.confirmDelete": false,
-  "prettier.htmlWhitespaceSensitivity": "strict",
-=======
-  "window.zoomLevel": -1,
->>>>>>> Stashed changes
+  "prettier.htmlWhitespaceSensitivity": "strict"
 }
