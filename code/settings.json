@@ -49,9 +49,12 @@
   ],
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
+<<<<<<< Updated upstream
   "go.formatFlags": [
     "-s"
   ],
+=======
+>>>>>>> Stashed changes
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -59,9 +62,13 @@
     "javascript"
   ],
   "prettier.singleQuote": true,
+<<<<<<< Updated upstream
   "window.zoomLevel": 0,
   "terminal.integrated.allowChords": false,
   "[python]": {},
   "explorer.confirmDelete": false,
   "prettier.htmlWhitespaceSensitivity": "strict",
+=======
+  "window.zoomLevel": -1,
+>>>>>>> Stashed changes
 }
