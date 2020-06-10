@@ -31,7 +31,7 @@ fi
 export GOROOT=$HOME/go
 export GOPATH=$HOME/projects/golib
 export EDITOR="code --wait"
-export PATH=$HOME/projects/depot_tools:$GOROOT/bin:$HOME/node/bin:$HOME/bin:$GOPATH/bin:$HOME/projects/swarming/client:$HOME/projects/clang/bin:$PATH
+#export PATH=$GOROOT/bin:$HOME/node/bin:$HOME/bin:$GOPATH/bin:$HOME/projects/swarming/client:$HOME/projects/clang/bin:$PATH:$HOME/projects/depot_tools
 
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
