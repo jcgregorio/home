@@ -49,11 +49,21 @@
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "prettier.disableLanguages": ["javascript"],
   "prettier.singleQuote": true,
   "window.zoomLevel": 0,
   "terminal.integrated.allowChords": false,
   "[python]": {},
   "explorer.confirmDelete": false,
-  "prettier.htmlWhitespaceSensitivity": "strict"
+  "prettier.htmlWhitespaceSensitivity": "strict",
+  "go.addTags": {},
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "prettier.jsxSingleQuote": true,
+  "typescript.format.semicolons": "insert",
+  "go.alternateTools": {}
 }
