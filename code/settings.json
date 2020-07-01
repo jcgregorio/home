@@ -65,5 +65,9 @@
   },
   "prettier.jsxSingleQuote": true,
   "typescript.format.semicolons": "insert",
-  "go.alternateTools": {}
+  "go.alternateTools": {},
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": true,
+  "tslint.configFile": "./tslint.json",
+  "prettier.bracketSpacing": false
 }
