@@ -69,5 +69,7 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.suggest.completeFunctionCalls": true,
   "tslint.configFile": "./tslint.json",
-  "prettier.bracketSpacing": false
+  "prettier.bracketSpacing": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
 }
