@@ -1,4 +1,5 @@
 # 'source' this file from ~/.bashrc
+
 color_prompt=yes
 force_color_prompt=yes
 
@@ -11,6 +12,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias s='http-server -p 8080 -a 127.0.0.1 -c -1'
+
+alias bazel="bazelisk"
+export BAZEL="bazelisk"
 
 # Coverage for a Go module.
 alias tc='go test -v -coverprofile=/tmp/c.out && go tool cover -html=/tmp/c.out'
@@ -51,6 +55,7 @@ BLUE=$'\033[38;5;68m'
 
 alias skia-public='gcloud container clusters get-credentials skia-public --zone us-central1-a --project skia-public; gcloud config set project skia-public'
 alias skia-corp='gcloud container clusters get-credentials skia-corp --zone us-central1-a --project google.com:skia-corp; gcloud config set project google.com:skia-corp'
+alias skia-switchboard='gcloud container clusters get-credentials skia-switchboard --zone us-central1-c --project skia-switchboard; gcloud config set project skia-switchboard'
 __kube_ps1()
 {
     if hash kubectl 2>/dev/null; then

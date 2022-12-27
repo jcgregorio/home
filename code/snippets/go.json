@@ -16,6 +16,12 @@
       "`json:\"$1\"`"
     ]
   },
+  "sql": {
+    "prefix": "sql",
+    "body": [
+      "`sql:\"$1\"`"
+    ]
+  },
   "yaml": {
     "prefix": "yaml",
     "body": [

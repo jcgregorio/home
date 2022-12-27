@@ -1,75 +1,142 @@
 {
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "editor.find.autoFindInSelection": "always",
-  "go.testFlags": ["-count=1"],
-  "go.delveConfig": {
-    "useApiV1": false,
-    "dlvLoadConfig": {
-      "followPointers": true,
-      "maxVariableRecurse": 3,
-      "maxStringLen": 400,
-      "maxArrayValues": 100,
-      "maxStructFields": -1
-    }
-  },
+  "editor.find.autoFindInSelection": "never",
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.eslint": true
   },
-  "go.lintOnSave": "file",
-  "go.useLanguageServer": true,
-  "go.languageServerExperimentalFeatures": {
-    "format": true,
-    "autoComplete": true,
-    "rename": true,
-    "goToDefinition": true,
-    "hover": true,
-    "signatureHelp": true,
-    "goToTypeDefinition": true,
-    "goToImplementation": true,
-    "documentSymbols": true,
-    "workspaceSymbols": true,
-    "findReferences": true,
-    "diagnostics": true,
-    "documentLink": true
-  },
+  "eslint.format.enable": true,
+  "eslint.validate": ["typescript", "typescriptreact"],
+
+  "editor.guides.bracketPairs": true,
   "git.enableSmartCommit": true,
-  "go.formatTool": "goimports",
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 80,
   "editor.wrappingIndent": "same",
   "editor.formatOnSave": true,
   "rewrap.autoWrap.enabled": false,
-  "go.autocompleteUnimportedPackages": true,
-  "explorer.confirmDragAndDrop": false,
-  "go.lintFlags": ["-min_confidence=.9"],
+
   "eslint.alwaysShowStatus": true,
-  "eslint.format.enable": true,
-  "go.formatFlags": ["-s"],
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  "eslint.lintTask.enable": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.disableLanguages": ["javascript"],
+
+  "explorer.confirmDragAndDrop": false,
+
   "prettier.singleQuote": true,
-  "window.zoomLevel": 0,
   "terminal.integrated.allowChords": false,
-  "[python]": {},
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
   "explorer.confirmDelete": false,
-  "prettier.htmlWhitespaceSensitivity": "strict",
-  "go.addTags": {},
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "prettier.jsxSingleQuote": true,
   "typescript.format.semicolons": "insert",
-  "go.alternateTools": {},
+
+  // Go stuff
+  "go.autocompleteUnimportedPackages": true,
+  "go.testFlags": ["-count=1"],
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "diagnostics": true
+  },
+  "go.formatTool": "goimports",
+  "go.formatFlags": ["-s"],
+  "go.toolsEnvVars": {
+    "GOPROXY": "direct"
+  },
+  "go.testTimeout": "20s",
+  "go.delveConfig": {},
+  "gopls": {
+    "build.allowImplicitNetworkAccess": true,
+
+    "verboseOutput": true,
+
+    // Add parameter placeholders when completing a function.
+    "usePlaceholders": true,
+
+    "ui.diagnostic.staticcheck": true,
+
+    "build.directoryFilters": [
+      "-_bazel_bin",
+      "-_bazel_buildbot",
+      "-_bazel_out",
+      "-_bazel_testlogs"
+    ]
+  },
+
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "typescript.preferences.quoteStyle": "single",
   "typescript.suggest.completeFunctionCalls": true,
-  "tslint.configFile": "./tslint.json",
-  "prettier.bracketSpacing": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.fontLigatures": false,
+  "editor.find.seedSearchStringFromSelection": true,
+  "files.exclude": {
+    "_bazel_*": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "bazel-infra/**": true
+  },
+  "spellchecker.documentTypes": ["markdown", "latex", "plaintext"],
+  "bazel.executable": "/home/jcgregorio/projects/golib/bin/bazelisk",
+  "bazel.buildifierExecutable": "/home/jcgregorio/projects/golib/bin/buildifier",
+  "bazel.buildifierFixOnFormat": true,
+
+  "prettier.proseWrap": "always",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "yaml.customTags": ["!encrypted/pkcs1-oaep scalar", "!vault scalar"],
+  "ansible.validate.executablePath": "/usr/bin/ansible-lint",
+  "spellchecker.ignoreWordsList": ["Ansible", "Skolo"],
+  "go.lintTool": "golint",
+  "security.workspace.trust.untrustedFiles": "open",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "yaml.schemas": {
+    "kubernetes": ["/*"]
+  },
+  "window.zoomLevel": -1,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "bazel.enableCodeLens": true,
+  "bazel.queriesShareServer": false
 }
