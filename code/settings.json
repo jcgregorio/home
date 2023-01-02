@@ -120,7 +120,7 @@
   },
   "go.toolsManagement.autoUpdate": true,
   "[sql]": {
-    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    "editor.defaultFormatter": "bradymholt.pgformatter"
   },
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
@@ -138,5 +138,7 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "bazel.enableCodeLens": true,
-  "bazel.queriesShareServer": false
+  "bazel.queriesShareServer": false,
+  "pgFormatter.commaBreak": true,
+  "pgFormatter.tabs": true
 }
