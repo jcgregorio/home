@@ -2,6 +2,7 @@
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.find.autoFindInSelection": "never",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -30,9 +31,6 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "explorer.confirmDelete": false,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "prettier.jsxSingleQuote": true,
   "typescript.format.semicolons": "insert",
 
@@ -48,7 +46,7 @@
   "go.toolsEnvVars": {
     "GOPROXY": "direct"
   },
-  "go.testTimeout": "20s",
+  "go.testTimeout": "60s",
   "go.delveConfig": {},
   "gopls": {
     "build.allowImplicitNetworkAccess": true,
@@ -86,9 +84,6 @@
   "typescript.suggest.completeFunctionCalls": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
   "editor.fontLigatures": false,
   "editor.find.seedSearchStringFromSelection": true,
   "files.exclude": {
@@ -129,16 +124,11 @@
     "kubernetes": ["/*"]
   },
   "window.zoomLevel": -1,
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "files.saveConflictResolution": "overwriteFileOnDisk",
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
   "bazel.enableCodeLens": true,
   "bazel.queriesShareServer": false,
   "pgFormatter.commaBreak": true,
-  "pgFormatter.tabs": true
+  "pgFormatter.tabs": true,
+  "npm.keybindingsChangedWarningShown": true
 }
