@@ -9,7 +9,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install git curl ncurses-term screen ncurses-dev \
   mercurial python python-dev build-essential cmake \
-  bash-completion
+  bash-completion entr
 
 git config --global user.email "joe@bitworking.org"
 git config --global user.name "Joe Gregorio"
