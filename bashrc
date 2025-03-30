@@ -70,6 +70,8 @@ __kube_ps1()
     fi
 }
 
+alias code="code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=wayland"
+
 export PROMPT_COMMAND='history -a; history -c; history -r; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
 #export PROMPT_COMMAND='history -a; history -c; history -r; __kube_ps1; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
 #export PS1='${BLUE}\u${ORANGE}@\h${PINK}$(__git_ps1 " (%s)")${GREEN} \W${D} \$ '
