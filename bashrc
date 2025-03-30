@@ -70,7 +70,8 @@ __kube_ps1()
     fi
 }
 
-export PROMPT_COMMAND='history -a; history -c; history -r; __kube_ps1; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
+export PROMPT_COMMAND='history -a; history -c; history -r; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
+#export PROMPT_COMMAND='history -a; history -c; history -r; __kube_ps1; __git_ps1 "${BLUE}\u${ORANGE}@\h${PINK} ${GREEN}\w${D}" " ${D}\n\\\$ "'
 #export PS1='${BLUE}\u${ORANGE}@\h${PINK}$(__git_ps1 " (%s)")${GREEN} \W${D} \$ '
 
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1280x850,2560x1700
