@@ -13,9 +13,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias s='http-server -p 8080 -a 127.0.0.1 -c -1'
 
-alias bazel="bazelisk"
-export BAZEL="bazelisk"
-
 # Coverage for a Go module.
 alias tc='go test -v -coverprofile=/tmp/c.out && go tool cover -html=/tmp/c.out'
 
@@ -77,3 +74,7 @@ export PROMPT_COMMAND='history -a; history -c; history -r; __git_ps1 "${BLUE}\u$
 #export PS1='${BLUE}\u${ORANGE}@\h${PINK}$(__git_ps1 " (%s)")${GREEN} \W${D} \$ '
 
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1280x850,2560x1700
+
+# Setup Loki
+export LOKI_ADDR=https://loki.tail433733.ts.net/
+eval "$(logcli --completion-script-bash)"

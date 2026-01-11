@@ -1,0 +1,33 @@
+services:
+  wyoming-whisper:
+    image: ankushm8/wyoming-faster-whisper:gpu
+    container_name: whisper
+#    user: 1000:100
+    user: root
+
+    ports:
+      - "10300:10300"
+    volumes:
+      - /Containers/Whisper/config:/config
+    environment:
+      - PUID=1000
+      - PGID=100
+      - LOG_LEVEL=DEBUG
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+    command: [
+      "uv", "run", "wyoming-faster-whisper",
+      "--model", "small-int8",
+      "--uri", "tcp://0.0.0.0:10300",
+      "--data-dir", "/config",
+      "--beam-size", "1",
+      "--language", "en",
+      "--device", "cuda"
+    ]
