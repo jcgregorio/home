@@ -1,18 +1,20 @@
 services:
-  wyoming-whisper:
-    image: ankushm8/wyoming-faster-whisper:gpu
-    container_name: whisper
-#    user: 1000:100
-    user: root
-
-    ports:
-      - "10300:10300"
-    volumes:
-      - /Containers/Whisper/config:/config
+  faster-whisper:
+    image: lscr.io/linuxserver/faster-whisper:latest
+    container_name: faster-whisper2
     environment:
       - PUID=1000
-      - PGID=100
-      - LOG_LEVEL=DEBUG
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DEBUG= #optional
+      - LOCAL_ONLY= #optional
+      - WHISPER_BEAM=1 #optional
+      - WHISPER_LANG=auto #optional
+      - WHISPER_MODEL=auto #optional
+    volumes:
+      - /path/to/faster-whisper/data:/config
+    ports:
+      - 10300:10300
     restart: unless-stopped
     deploy:
       resources:
@@ -22,12 +24,3 @@ services:
               count: all
               capabilities:
                 - gpu
-    command: [
-      "uv", "run", "wyoming-faster-whisper",
-      "--model", "small-int8",
-      "--uri", "tcp://0.0.0.0:10300",
-      "--data-dir", "/config",
-      "--beam-size", "1",
-      "--language", "en",
-      "--device", "cuda"
-    ]
