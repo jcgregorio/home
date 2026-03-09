@@ -36,6 +36,16 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0
     restart: unless-stopped
 
+  matterbridge:
+    image: luligu/matterbridge:latest
+    container_name: matterbridge
+    network_mode: host
+    volumes:
+      - /home/jcgregorio/homeassistant/matterbridge:/root/Matterbridge
+      - /home/jcgregorio/homeassistant/matterbridge-config:/root/.matterbridge
+      - /home/jcgregorio/homeassistant/mattercert:/root/.mattercert
+    restart: unless-stopped
+
   piper:
     image: rhasspy/wyoming-piper:latest
     container_name: piper
