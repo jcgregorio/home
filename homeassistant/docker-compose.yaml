@@ -1,20 +1,12 @@
 services:
   faster-whisper:
-    image: lscr.io/linuxserver/faster-whisper:latest
-    container_name: faster-whisper2
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - DEBUG= #optional
-      - LOCAL_ONLY= #optional
-      - WHISPER_BEAM=1 #optional
-      - WHISPER_LANG=auto #optional
-      - WHISPER_MODEL=auto #optional
-    volumes:
-      - /path/to/faster-whisper/data:/config
+    image: fedirz/faster-whisper-server:latest-cuda
+    container_name: jarvis-whisper
     ports:
-      - 10300:10300
+      - "8000:8000"
+    environment:
+      - WHISPER__MODEL=base
+      - WHISPER__DEVICE=cuda
     restart: unless-stopped
     deploy:
       resources:
@@ -45,5 +37,25 @@ services:
               count: all
               capabilities: [gpu]
 
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: jarvis-piper
+    ports:
+      - "10200:10200"
+    volumes:
+      - piper_data:/data
+    command: --voice en_US-hfc_male-medium
+    restart: unless-stopped
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    restart: unless-stopped
+
 volumes:
   ollama_data:
+  piper_data:
