@@ -1,0 +1,3 @@
+[submodule "myjarvis-secret"]
+	path = myjarvis-secret
+	url = https://github.com/jcgregorio/myjarvis-secret.git
