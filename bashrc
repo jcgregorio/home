@@ -12,6 +12,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias s='http-server -p 8080 -a 127.0.0.1 -c -1'
+alias lcodex='~/jcgregorio/lcodex.sh'
 
 # Coverage for a Go module.
 alias tc='go test -v -coverprofile=/tmp/c.out && go tool cover -html=/tmp/c.out'
